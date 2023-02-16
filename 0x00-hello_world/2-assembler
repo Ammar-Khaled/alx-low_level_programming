@@ -1,1 +1,2 @@
 #!/bin/bash
+gcc -S $CFILE  # -S stop after the compilation phase don't run assembler => generate assembly code (file.s)
