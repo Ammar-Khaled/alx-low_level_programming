@@ -10,6 +10,20 @@ void new_line(void)
 	putchar('\n');
 }
 
+void print_comb(int i1, int i2, int j1, int j2)
+{
+	putchar('0' + i1);
+	putchar('0' + i2);
+	putchar(' ');
+	putchar('0' + j1);
+	putchar('0' + j2);
+}
+
+void separate(void)
+{
+	putchar(',');
+	putchar(' ');
+}
 
 int main(void)
 {
@@ -39,11 +53,7 @@ for (i1 = 0; i1 < 10; i1++)
 			f2 = false;
 			while (j2 < 10)
 			{
-				putchar('0' + i1);
-				putchar('0' + i2);
-				putchar(' ');
-				putchar('0' + j1);
-				putchar('0' + j2);
+				print_comb(i1, i2, j1, j2);
 				if (i1 == 9 && i2 == 8 && j1 == 9 && j2 == 9)
 				{
 					new_line();
@@ -51,8 +61,7 @@ for (i1 = 0; i1 < 10; i1++)
 				}
 				else
 				{
-					putchar(',');
-					putchar(' ');
+					separate();
 				}
 				j2++;
 			}
