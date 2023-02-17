@@ -41,7 +41,7 @@ for (i1 = 0; i1 < 10; i1++)
 				if (i1 == 9 && i2 == 8 && j1 == 9 && j2 == 9)
 				{
 					putchar('\n');
-					return (0);
+					break;
 				}
 				else
 				{
@@ -52,4 +52,5 @@ for (i1 = 0; i1 < 10; i1++)
 		}
 	}
 }
+return (0);
 }
