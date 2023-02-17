@@ -31,7 +31,7 @@ for (i1 = 0; i1 < 10; i1++)
 				j2 = 0;
 			}
 			f2 = false;
-			while (j2++ < 10)
+			while (j2 < 10)
 			{
 				putchar('0' + i1);
 				putchar('0' + i2);
@@ -48,6 +48,7 @@ for (i1 = 0; i1 < 10; i1++)
 					putchar(',');
 					putchar(' ');
 				}
+				j2++;
 			}
 		}
 	}
