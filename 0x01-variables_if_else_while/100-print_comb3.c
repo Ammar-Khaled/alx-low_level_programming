@@ -20,6 +20,7 @@ for (int i = 48; i < 58; i++)
    }
    else
      putchar(' ');
+  }
 }  
 return (0);
 }
