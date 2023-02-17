@@ -6,7 +6,11 @@
 */
 
 /**
-* print_comb -  print a possible different combinations of two two-digit numbers
+* print_comb - print a possible different combinations of two two-digit numbers
+* i1 : first digit of first num
+* i2 : second digit of first num
+* j1 : first digit of second num
+* j2 : second digit of second num
 * Return: Always 1 (Success)
 */
 
