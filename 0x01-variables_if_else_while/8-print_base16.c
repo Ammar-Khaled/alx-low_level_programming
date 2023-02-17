@@ -13,7 +13,7 @@ while (ch <= '9')
 {
 	putchar(ch++);
 }
-ch = 'a';  
+ch = 'a';
 while (ch <= 'f')
 {
 	putchar(ch++);
