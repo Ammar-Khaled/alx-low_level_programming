@@ -7,9 +7,13 @@
 
 int main(void)
 {
-char ch = 'a';
-for (; ch <= 'z' && ch != 'q' && ch != 'e'; ch++)
-{  
+char ch;
+for (ch = 'a'; ch <= 'z'; ch++)
+{
+	if (ch = 'e' || ch = 'q')
+	{
+		continue;
+	}
 	putchar(ch);
 }
 putchar('\n');
