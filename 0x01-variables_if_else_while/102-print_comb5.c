@@ -5,6 +5,12 @@
 * Return: Always 0 (Success)
 */
 
+void new_line(void)
+{
+	putchar('\n');
+}
+
+
 int main(void)
 {
 int i1, i2, j1, j2;
@@ -40,7 +46,7 @@ for (i1 = 0; i1 < 10; i1++)
 				putchar('0' + j2);
 				if (i1 == 9 && i2 == 8 && j1 == 9 && j2 == 9)
 				{
-					putchar('\n');
+					new_line();
 					break;
 				}
 				else
