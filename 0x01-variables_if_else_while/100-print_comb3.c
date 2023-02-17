@@ -13,11 +13,13 @@ for (int i = 48; i < 58; i++)
   for (int j = i+1; j < 58; j++)
   {
    putchar(i); putchar(j); putchar(',');
-   if ( i != 56 && j != 57)
-     putchar(' '); 
-     
-  }
+   if ( i == 56 && j == 57 )
+   {
+     putchar('\n');
+     break;
+   }
+   else
+     putchar(' ');
 }  
-putchar('\n');
 return (0);
 }
