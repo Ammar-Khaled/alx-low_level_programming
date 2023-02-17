@@ -14,11 +14,10 @@ for (int i = 48; i < 58; i++)
   {
    putchar(i); putchar(j); putchar(',');
    if ( i != 56 && j != 57)
-     putchar(' ');
-   else 
-     putchar('\n');
+     putchar(' '); 
+     
   }
 }  
-
+putchar('\n');
 return (0);
 }
