@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <stdbool.h>
-/**
-* main -  print  all possible different combinations of two two-digit numbers
-* Return: Always 0 (Success)
-*/
+
 
 /**
 * print_comb - print a possible different combinations of two two-digit numbers
@@ -13,7 +10,6 @@
 * j2 : second digit of second num
 * Return: Always 1 (Success)
 */
-
 int print_comb(int i1, int i2, int j1, int j2)
 {
 	putchar('0' + i1);
@@ -35,6 +31,11 @@ int separate(void)
 	return (1);
 }
 
+
+/**
+* main -  print  all possible different combinations of two two-digit numbers
+* Return: Always 0 (Success)
+*/
 int main(void)
 {
 int i1, i2, j1, j2;
