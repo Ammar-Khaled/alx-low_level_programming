@@ -7,9 +7,12 @@
 
 int main(void)
 {
-int ascii = 48;
+int ascii;
+ascii = 48;
 while (ascii <= 57)
-  putchar(ascii);
-putchar('\n');  
+{
+	putchar(ascii++);
+}
+putchar('\n');
 return (0);
 }
