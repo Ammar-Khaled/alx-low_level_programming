@@ -12,6 +12,9 @@ for (i1 = 0; i1 < 10; i1++)
 {
 	for (i2 = 0; i2 < 10; i2++)
 	{
+		putchar('0' + i1);
+		putchar('0' + i2);
+		putchar(' ');
 		if (i2 == 9)
 		{
 			j2 = 0;
@@ -26,9 +29,6 @@ for (i1 = 0; i1 < 10; i1++)
 		{
 			for (; j2 < 10; j2++)
 			{
-				putchar('0' + i1);
-				putchar('0' + i2);
-				putchar(' ');
 				putchar('0' + j1);
 				putchar('0' + j2);
 					
