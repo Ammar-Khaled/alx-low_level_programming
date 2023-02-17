@@ -5,10 +5,10 @@
 * Return: Always 0 (Success)
 */
 
-void new_line(void)
-{
-	putchar('\n');
-}
+/**
+* print_comb -  print  one possible different combinations of two two-digit numbers
+* Return: Void
+*/
 
 void print_comb(int i1, int i2, int j1, int j2)
 {
@@ -19,6 +19,10 @@ void print_comb(int i1, int i2, int j1, int j2)
 	putchar('0' + j2);
 }
 
+/**
+* separate  -  print  comma and space
+* Return: Void
+*/
 void separate(void)
 {
 	putchar(',');
@@ -54,13 +58,11 @@ for (i1 = 0; i1 < 10; i1++)
 				print_comb(i1, i2, j1, j2);
 				if (i1 == 9 && i2 == 8 && j1 == 9 && j2 == 9)
 				{
-					new_line();
+					putchar('\n');
 					break;
 				}
 				else
-				{
 					separate();
-				}
 				j2++;
 			}
 		}
