@@ -1,5 +1,5 @@
-//#include <stdio.h>
-
+#include <stdio.h>
+#include <stdbool.h>
 /**
 * main -  print  all possible different combinations of two two-digit numbers
 * Return: Always 0 (Success)
@@ -33,20 +33,20 @@ for (i1 = 0; i1 < 10; i1++)
 			f2 = false;
 			while (j2 < 10)
 			{
-				// putchar('0' + i1);
-				// putchar('0' + i2);
-				// putchar(' ');
-				// putchar('0' + j1);
-				// putchar('0' + j2);
+				putchar('0' + i1);
+				putchar('0' + i2);
+				putchar(' ');
+				putchar('0' + j1);
+				putchar('0' + j2);
 				if (i1 == 9 && i2 == 8 && j1 == 9 && j2 == 9)
 				{
-					//putchar('\n');
+					putchar('\n');
 					break;
 				}
 				else
 				{
-					// putchar(',');
-					// putchar(' ');
+					putchar(',');
+					putchar(' ');
 				}
 				j2++;
 			}
