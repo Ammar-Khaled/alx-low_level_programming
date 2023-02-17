@@ -1,15 +1,15 @@
 #include <stdio.h>
 
 /**
- * main -  print alphabet
- * Return: Always 0 (Success)
+ * main -  print alphabet reversily
+ * Return: Always 0 
  */
 
 int main(void)
 {
 char ch;
 ch = 'z';
-while (ch >= 'z')
+while (ch >= 'a')
 {
 	putchar(ch--);
 }
