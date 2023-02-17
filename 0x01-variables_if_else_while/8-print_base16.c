@@ -1,18 +1,23 @@
 #include <stdio.h>
 
 /**
- * main -  print alphabet
- * Return: Always 0 (Success)
+ * main -  print
+ * Return: Always 0
  */
 
 int main(void)
 {
-char ch = '0';
+char ch;
+ch = '0';
 while (ch <= '9')
-  putchar(ch++);
+{
+	putchar(ch++);
+}
 ch = 'a';  
 while (ch <= 'f')
-  putchar(ch++);
+{
+	putchar(ch++);
+}
 putchar('\n');
 return (0);
 }
