@@ -8,9 +8,9 @@
 int main(void)
 {
 char ch = 'a';
-while (ch <= 'z' && ch != 'q' && ch != 'e')
+for (; ch <= 'z' && ch != 'q' && ch != 'e'; ch++)
 {  
-	putchar(ch++);
+	putchar(ch);
 }
 putchar('\n');
 return (0);
