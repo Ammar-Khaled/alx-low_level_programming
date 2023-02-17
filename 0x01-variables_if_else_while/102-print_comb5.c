@@ -6,27 +6,29 @@
 */
 
 /**
-* print_comb -  print  one possible different combinations of two two-digit numbers
-* Return: Void
+* print_comb -  print a possible different combinations of two two-digit numbers
+* Return: Always 1 (Success)
 */
 
-void print_comb(int i1, int i2, int j1, int j2)
+int print_comb(int i1, int i2, int j1, int j2)
 {
 	putchar('0' + i1);
 	putchar('0' + i2);
 	putchar(' ');
 	putchar('0' + j1);
 	putchar('0' + j2);
+	return (1);
 }
 
 /**
 * separate  -  print  comma and space
-* Return: Void
+* Return: Always 1 (Success)
 */
-void separate(void)
+int separate(void)
 {
 	putchar(',');
 	putchar(' ');
+	return (1);
 }
 
 int main(void)
