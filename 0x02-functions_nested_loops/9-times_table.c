@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * len - finds the length of a number
- * @n: the number 
+ * @n: the number
  * Return: How many digits the number consists of
  */
 int len(int n)
@@ -11,8 +11,8 @@ int len(int n)
 	ans = 0;
 
 	if (n == 0)
-		return 1;
-	
+		return (1);
+
 	while (n)
 	{
 		ans++;
