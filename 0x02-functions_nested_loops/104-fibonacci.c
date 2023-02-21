@@ -14,7 +14,7 @@ i = 1;
 while (i < 99)
 {
 	n = n1 + n2;
-	printf("%.0g", n);
+	printf("%.0lg", n);
 	n1 = n2;
 	n2 = n;
 	if (i != 98)
