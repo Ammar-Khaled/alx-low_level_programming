@@ -15,7 +15,7 @@ i = 3;
 while (i < 99)
 {
 	n = n1 + n2;
-	printf("%ld", n);
+	printf("%lu", n);
 	n1 = n2;
 	n2 = n;
 	if (i != 98)
