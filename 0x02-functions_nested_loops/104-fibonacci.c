@@ -6,7 +6,7 @@
  */
 int main(void)
 {
-unsigned long int n1, n2, n, i;
+unsigned long double n1, n2, n, i;
 
 n1 = 0;
 n2 = 1;
@@ -14,7 +14,7 @@ i = 1;
 while (i < 99)
 {
 	n = n1 + n2;
-	printf("%lu", n);
+	printf("%.0g", n);
 	n1 = n2;
 	n2 = n;
 	if (i != 98)
