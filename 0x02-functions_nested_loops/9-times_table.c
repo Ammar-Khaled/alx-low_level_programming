@@ -6,13 +6,15 @@
  */
 int len(int n)
 {
+	if (n == 0)
+		return 1;
 	int ans = 0;
 	while (n)
 	{
 		ans++;
 		n /= 10;
 	}
-	return n;
+	return (n);
 }
 
 
