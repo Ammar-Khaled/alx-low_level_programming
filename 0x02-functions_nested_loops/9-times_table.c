@@ -18,7 +18,7 @@ int len(int n)
 		ans++;
 		n /= 10;
 	}
-	return (n);
+	return (ans);
 }
 
 
