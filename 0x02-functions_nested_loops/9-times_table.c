@@ -6,10 +6,13 @@
  */
 int len(int n)
 {
+	int ans;
+
+	ans = 0;
+
 	if (n == 0)
 		return 1;
-	int ans;
-	ans = 0;
+	
 	while (n)
 	{
 		ans++;
