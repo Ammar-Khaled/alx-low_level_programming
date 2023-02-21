@@ -27,7 +27,7 @@ int len(int n)
  */
 void print_times_table(int x)
 {
-	if (n > 15 || n < 0)
+	if (x > 15 || x < 0)
 	{
 		_putchar('\n');
 		return;
