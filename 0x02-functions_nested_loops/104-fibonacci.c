@@ -9,8 +9,8 @@ int main(void)
 /*the 98th Fibonacci number is 218 922 995 834 555 169 026 WHICH will cause overflow
 *so we will divide it into low part (12 digits) and high part
 */
-const unsigned long int half = 1000000000000LL; 
-unsigned long int n1_low, n1_high, n2_low, n2_high, s_low, sum_high, i;
+const unsigned long int half = 1000000000000; 
+unsigned long int n1_low, n1_high, n2_low, n2_high, sum_low, sum_high, i;
 
 n1_low = n1_high = 0;
 n2_low = 1;
