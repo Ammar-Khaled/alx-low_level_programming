@@ -4,11 +4,11 @@
  */
 void print_50_fib()
 {
-int fib[51];
+int fib[51], i;
 printf("%d, %d, ", 1, 2);
 fib[1] = 1;
 fib[2] = 2;
-int i = 3;
+i = 3;
 while (i < 51)
 {
 	fib[i] = fib[i - 1] + fib[i - 2];
