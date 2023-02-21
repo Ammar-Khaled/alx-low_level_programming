@@ -49,7 +49,7 @@ for (i = 0; i <= x; i++)
 			_putchar((n / 10) + '0');
 			_putchar((n % 10) + '0');
 		}
-		if (j != 9)
+		if (j != x)
 		{
 		_putchar(',');
 		while (spaces--)
