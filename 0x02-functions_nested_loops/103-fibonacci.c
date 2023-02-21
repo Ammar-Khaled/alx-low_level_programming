@@ -16,5 +16,5 @@ while (n <= 4000000 && n % 2 == 0)
 	n2 = n;
 	n = n1 + n2;
 }
-printf("%l\n", sum);
+printf("%d\n", sum);
 }
