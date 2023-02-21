@@ -44,12 +44,18 @@ for (i = 0; i <= x; i++)
 		spaces = 4 - len(nn);
 		if (n < 10)
 			_putchar(n + '0');
-		else
+		else if (n < 100)
 		{
 			_putchar((n / 10) + '0');
 			_putchar((n % 10) + '0');
 		}
-		if (j != 9)
+		else
+		{
+			_putchar((n / 100) + '0');
+			_putchar(((n / 10) % 10) + '0');
+			_putchar((n % 10) + '0');
+		}
+		if (j != x)
 		{
 		_putchar(',');
 		while (spaces--)
