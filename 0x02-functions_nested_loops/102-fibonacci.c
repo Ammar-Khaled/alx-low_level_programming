@@ -1,8 +1,10 @@
 #include <stdio.h>
 
-/** print_50_fib - prints the first 50 Fibonacci numbers, starting with 1 and 2, followed by a new line.
+/**
+ * main - prints the first 50 Fibonacci numbers, starting with 1 and 2, followed by a new line.
+ * Return: Always 0
  */
-void print_50_fib()
+int main(void)
 {
 int fib[51], i;
 printf("%d, %d, ", 1, 2);
@@ -15,4 +17,5 @@ while (i < 51)
 	printf("%d, ", fib[i]);
 }
 printf("\n");
+return (0);
 }
