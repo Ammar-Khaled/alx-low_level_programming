@@ -8,24 +8,14 @@
  */
 int main(void)
 {
-	int sum, n, factor;
+	int sum, i;
 
 	sum = 0;
-	n = 3;
-	factor = 2;
-	while (n < 1024)
+	
+	for (i = e; i < 1024; i++)
 	{
-		sum += n;
-		n *= factor;
-		factor++;
-	}
-	n = 5;
-	factor = 2;
-	while (n < 1024)
-	{
-		sum += n;
-		n *= factor;
-		factor++;
+		if (i % 3 == 0 || i % 5 == 0)
+			sum += i;
 	}
 	printf("%d\n", sum);
 return (0);
