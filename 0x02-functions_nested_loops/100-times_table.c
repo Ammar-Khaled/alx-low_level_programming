@@ -23,17 +23,15 @@ int len(int n)
 
 
 /**
- * times_table - prints the xth times table, starting with 0.
+ * print_times_table - prints the xth times table, starting with 0.
+ * @x: the order of times rable
  */
 void print_times_table(int x)
 {
 int i, j, spaces, n, nn;
-	
-if (x > 15 || x < 0)
-{
-	return;
-}
 
+if (x <= 15 && x >= 0)
+{
 for (i = 0; i <= x; i++)
 {
 	for (j = 0; j <= x; j++)
@@ -65,4 +63,7 @@ for (i = 0; i <= x; i++)
 			_putchar('\n');
 	}
 }
+}
+
+
 }
