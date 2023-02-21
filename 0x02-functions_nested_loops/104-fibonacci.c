@@ -19,10 +19,12 @@ while (i < 99)
 	n1 = n2;
 	n2 = n;
 	n = n1 + n2;
-	++i;
 	if (i != 98)
 		printf(", ");
+	else
+		printf("\n");
+	++i;
 }
-printf("\n");
+
 return (0);
 }
