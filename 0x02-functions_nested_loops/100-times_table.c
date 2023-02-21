@@ -31,7 +31,6 @@ int i, j, spaces, n, nn;
 	
 if (x > 15 || x < 0)
 {
-	_putchar('\n');
 	return;
 }
 
