@@ -14,6 +14,8 @@ i = 3;
 while (i < 51)
 {
 	fib[i] = fib[i - 1] + fib[i - 2];
+	fib[i - 2] = fib[i - 1];
+	fib[i - 1] = fib[i];
 	printf("%d, ", fib[i]);
 }
 printf("\n");
