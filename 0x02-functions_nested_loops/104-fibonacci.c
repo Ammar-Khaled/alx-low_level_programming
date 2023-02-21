@@ -15,11 +15,13 @@ printf("1, 2, ");
 i = 3;
 while (i < 99)
 {
-	printf("%ld, ", n);
+	printf("%ld", n);
 	n1 = n2;
 	n2 = n;
 	n = n1 + n2;
 	++i;
+	if (i != 98)
+		printf(", ");
 }
 printf("\n");
 return (0);
