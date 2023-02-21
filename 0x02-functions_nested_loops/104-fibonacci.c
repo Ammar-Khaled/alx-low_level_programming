@@ -22,4 +22,5 @@ while (i < 99)
 	++i;
 }
 printf("\n");
+return (0);
 }
