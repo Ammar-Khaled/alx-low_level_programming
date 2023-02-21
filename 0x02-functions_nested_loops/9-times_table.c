@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * len - finds the length of a number
  * @n: the number 
