@@ -49,12 +49,15 @@ for (i = 0; i <= x; i++)
 			_putchar((n / 10) + '0');
 			_putchar((n % 10) + '0');
 		}
+<<<<<<< HEAD
 		else
 		{
 			_putchar((n / 100) + '0');
 			_putchar(((n / 10) % 10) + '0');
 			_putchar((n % 10) + '0');
 		}
+=======
+>>>>>>> 4db57862889d10ff8995f767a9b79e34705040ca
 		if (j != x)
 		{
 		_putchar(',');
