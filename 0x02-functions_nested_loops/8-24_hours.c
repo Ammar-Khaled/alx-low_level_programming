@@ -5,40 +5,39 @@
 void jack_bauer(void)
 {
 int hh = 0, mm = 0;
-char digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'}; 
 int h1, h0, m1, m0;
-while (hh < 24)
+for (hh = 0; hh < 24; hh++)
 {
-	while (mm < 60)
+	for (mm = 0; mm < 60; mm++)
 	{
 		if (hh < 10)
 		{
-			h0 = 0;
-			h1 = hh;
+			h0 = hh;
+			h1 = 0;
 		}
 		else
 		{
 			h0 = hh % 10;
 			h1 = hh / 10;
 		}
-		_putchar(digits[h0]);
-		_putchar(digits[h1]);
+		_putchar(h1 + '0');
+		_putchar(h0 + '0');
 		_putchar(':');
 		if (mm < 10)
 		{
-			m0 = 0;
-			m1 = mm;
+			m0 = mm;
+			m1 = 0;
 		}
 		else
 		{
 			m0 = mm % 10;
 			m1 = mm / 10;
 		}
-		_putchar(digits[m0]);
-		_putchar(digits[m1]);
+		_putchar(m1 + '0');
+		_putchar(m0 + '0');
 		_putchar('\n');
-		mm++;
+		
 	}
-	hh++;
+	
 }
 }
