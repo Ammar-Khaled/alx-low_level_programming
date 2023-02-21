@@ -20,9 +20,6 @@ else
  */
 int print_last_digit(int n)
 {
-int digit;
-  
-digit = _abs(n) % 10;
-_putchar(digit + '0');
-return (digit);
+_putchar((_abs(n) % 10) + '0');
+return (_abs(n) % 10);
 }
