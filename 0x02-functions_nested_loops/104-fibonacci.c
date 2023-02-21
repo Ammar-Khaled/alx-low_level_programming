@@ -1,10 +1,16 @@
 #include <stdio.h>
 /**
- * print_98_fib - prints the first 98 Fibonacci numbers, starting with 1 and 2, followed by a new line.
+ * main - prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2, followed by a new line.
+ Return: Always 0
  */
-void print_98_fib(void)
+int main(void)
 {
-int n1 = 1, n2 = 2, n = n1 + n2;
+int n1, n2, n;
+
+n1 = 1;
+n2 = 2;
+n = n1 + n2;
 printf("1, 2, ");
 int i = 3;
 while (i < 99)
