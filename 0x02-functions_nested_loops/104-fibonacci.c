@@ -8,10 +8,9 @@ int main(void)
 {
 unsigned long int n1, n2, n, i;
 
-n1 = 1;
-n2 = 2;
-printf("1, 2, ");
-i = 3;
+n1 = 0;
+n2 = 1;
+i = 1;
 while (i < 99)
 {
 	n = n1 + n2;
