@@ -27,12 +27,14 @@ int len(int n)
  */
 void print_times_table(int x)
 {
-	if (x > 15 || x < 0)
-	{
-		_putchar('\n');
-		return;
-	}
 int i, j, spaces, n, nn;
+	
+if (x > 15 || x < 0)
+{
+	_putchar('\n');
+	return;
+}
+
 for (i = 0; i <= x; i++)
 {
 	for (j = 0; j <= x; j++)
