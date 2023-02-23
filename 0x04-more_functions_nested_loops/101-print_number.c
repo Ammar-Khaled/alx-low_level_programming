@@ -1,13 +1,12 @@
 #include "main.h"
 /**
  * print_number -  prints an integer
- * with only the putchar() function.
- * recursive implementation.
+ * with only the putchar() function
  * Return: void
  */
 void print_number(int n)
 {
-	int digit;
+	int digit, copy_n, len;
 	
 	if (n < 0)
 	{
@@ -15,14 +14,21 @@ void print_number(int n)
 		n *= -1;
 	}
 	
-	if (n < 10)
+	copy_n = n;
+	while (copy_n)
 	{
-		_putchar('0' + n);
-		return;
+		len++
+		copy_n /= 10;
 	}
 	
-	digit = n % 10;
-	print_number(n / 10);
-	_putchar('0' + digit);
+	while (n > 9)
+	{
+		digit = n / (10 * (len - 1))
+		len--;
+		n /= 10;
+		_putchar(digit + '0');
+	}
+	_putchar('0' + n);
+	_putchar('\n');
 
 }
