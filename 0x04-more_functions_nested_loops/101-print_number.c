@@ -1,4 +1,5 @@
 #include "main.h"
+#include <math.h>
 /**
  * print_number -  prints an integer
  * with only the putchar() function
@@ -24,9 +25,9 @@ void print_number(int n)
 
 	while (n > 9)
 	{
-		digit = n / (10 * (len - 1));
+		digit = n / pow(10, (len - 1));
 		_putchar(digit + '0');
-		n -= (digit * (10 * (len - 1)));
+		n -= (digit * pow(10, (len - 1)));
 		len--;
 	}
 	_putchar('0' + n);
