@@ -7,21 +7,25 @@
  */
 int main(void)
 {
-	int max, n, i;
+	int max = 0, n, i;
 
 	n = 612852475143;
 	while (n > 1)
 	{
 		if (n % 2 == 0)
-			i = 2;
+		{
+			n /= 2;
+			max = 2 > max? 2 : max;
+		}
 		else
 		{
-		for (i = 2; i <= n; i++)
-		{
-			n /= i;
-			max = i > max? i : max;
-			break;	
-		}}
+			for (i = 3; i <= n; i += 2)
+			{
+				n /= i;
+				max = i > max? i : max;
+				break;	
+			}
+		}
 
 	}
 	printf("%d", max);
