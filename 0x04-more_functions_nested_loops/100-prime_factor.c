@@ -7,7 +7,8 @@
  */
 int main(void)
 {
-	int max = 0, n, i;
+	int max = 0, i;
+	long n;
 
 	n = 612852475143;
 	while (n > 1)
@@ -15,7 +16,7 @@ int main(void)
 		if (n % 2 == 0)
 		{
 			n /= 2;
-			max = 2 > max? 2 : max;
+			max = (2 > max)? 2 : max;
 		}
 		else
 		{
