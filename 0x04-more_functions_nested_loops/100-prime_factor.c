@@ -22,9 +22,12 @@ int main(void)
 		{
 			for (i = 3; i <= n; i += 2)
 			{
+				if (n % i == 0)
+				{
 				n /= i;
 				max = i > max? i : max;
-				break;	
+				break;
+				}
 			}
 		}
 
