@@ -4,6 +4,7 @@
  * my_pow - calculate b to the power ex
  * @b: base
  * @ex: exponent
+ */
 int my_pow(int b, int ex)
 {
 	int res;
