@@ -16,7 +16,7 @@ int main(void)
 		if (n % 2 == 0)
 		{
 			n /= 2;
-			max = (2 > max)? 2 : max;
+			max = (max < 2) ? 2 : max;
 		}
 		else
 		{
@@ -25,7 +25,7 @@ int main(void)
 				if (n % i == 0)
 				{
 				n /= i;
-				max = i > max? i : max;
+				max = (i > max) ? i : max;
 				break;
 				}
 			}
