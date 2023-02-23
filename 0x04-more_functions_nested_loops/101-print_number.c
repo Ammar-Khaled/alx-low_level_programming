@@ -1,9 +1,13 @@
 #include "main.h"
 
+/**
+ * my_pow - calculate b to the power ex
+ * @b: base
+ * @ex: exponent
 int my_pow(int b, int ex)
 {
 	int res;
-	
+
 	res = 1;
 	while (ex--)
 		res *= b;
