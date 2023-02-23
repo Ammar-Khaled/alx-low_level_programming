@@ -29,6 +29,4 @@ void print_number(int n)
 		len--;
 	}
 	_putchar('0' + n);
-	_putchar('\n');
-
 }
