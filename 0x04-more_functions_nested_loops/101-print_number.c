@@ -1,3 +1,4 @@
+#include "main.h"
 /**
  * print_number -  prints an integer
  * with only the putchar() function.
