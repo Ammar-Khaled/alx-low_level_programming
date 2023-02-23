@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_diagonal - draws a diagonal line on the terminal.
- * @n: hight of the diagonal 
+ * @n: hight of the diagonal
  * Return: void
  */
 void print_diagonal(int n)
