@@ -15,6 +15,6 @@ void print_number(int n)
 		return;
 	}
 	digit = n % 10;
-	print_digit(n / 10);
+	print_number(n / 10);
 	_putchar('0' + digit);
 }
