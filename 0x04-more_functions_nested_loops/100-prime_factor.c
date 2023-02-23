@@ -10,7 +10,7 @@ int main(void)
 	int max = 0, i;
 	long n;
 
-	n = 1231952;
+	n = 612852475143;
 	while (n > 1)
 	{
 		if (n % 2 == 0)
