@@ -1,6 +1,7 @@
+#include "main.h"
 /**
  * print_triangle - prints a right-side triangle with 90-degree angle
- *
+ * @size: size of triangle
  * Return: void
  */
 
