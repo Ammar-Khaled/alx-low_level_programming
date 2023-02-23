@@ -1,5 +1,15 @@
 #include "main.h"
-#include <math.h>
+
+int my_pow(int b, int ex)
+{
+	int res;
+	
+	res = 1;
+	while (ex--)
+		res *= b;
+	return (res);
+}
+
 /**
  * print_number -  prints an integer
  * with only the putchar() function
@@ -25,9 +35,9 @@ void print_number(int n)
 
 	while (n > 9)
 	{
-		digit = n / pow(10, (len - 1));
+		digit = n / my_pow(10, (len - 1));
 		_putchar(digit + '0');
-		n -= (digit * pow(10, (len - 1)));
+		n -= (digit * my_pow(10, (len - 1)));
 		len--;
 	}
 	_putchar('0' + n);
