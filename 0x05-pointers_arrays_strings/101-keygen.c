@@ -24,7 +24,8 @@ int main()
   char *lowers;
   char *uppers;
   char *symbols;
-     
+  int digits_length, lowers_length, uppers_length, symbols_length;
+  
   printf("Length: ");
   
 
@@ -46,16 +47,16 @@ int main()
 
 
   digits = "0123456789";
-  int digits_length = strlen(digits);
+   digits_length = strlen(digits);
   
   lowers = "abcdefghijklmnopqrstuwxyz";
-  int lowers_length = strlen(lowers);
+   lowers_length = strlen(lowers);
   
   uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  int uppers_length = strlen(uppers);
+   uppers_length = strlen(uppers);
   
   symbols = "!@#$%^&*()";
-  int symbols_length = strlen(symbols);
+   symbols_length = strlen(symbols);
     
 
   srand(time(NULL) * getpid());
