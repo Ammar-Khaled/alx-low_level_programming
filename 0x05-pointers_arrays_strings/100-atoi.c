@@ -11,6 +11,11 @@ int _isdigit(int c)
 		return (0);
 }
 
+/**
+ * _atoi -  convert a string to an integer.
+ * @s: string to be converted
+ * Return: integer representation of the string
+ */
 int _atoi(char *s)
 {
 	unsigned int ans, negatives, i, flag;
