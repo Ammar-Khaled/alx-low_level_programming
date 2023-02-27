@@ -15,7 +15,9 @@ int _atoi(char *s)
 {
 	int ans, negatives, i;
 
-	ans = i = negatives =0;
+	ans = 0;
+	i = 0;
+	negatives = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
@@ -31,5 +33,7 @@ int _atoi(char *s)
 		ans *= 10;
 		ans += s[i] - '0';
 	}
+	if (negatives % 2 == 1)
+		return (-1 * ans);
 	return (ans);
 }
