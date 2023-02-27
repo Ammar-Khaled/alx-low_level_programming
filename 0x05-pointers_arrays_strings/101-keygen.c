@@ -20,7 +20,11 @@ int main()
 {
   int length, i;
   char *password;
-
+  char *digits;
+  char *lowers;
+  char *uppers;
+  char *symbols;
+     
   printf("Length: ");
   
 
@@ -41,16 +45,16 @@ int main()
   password = malloc(length + 1);
 
 
-  char *digits = "0123456789";
+  digits = "0123456789";
   int digits_length = strlen(digits);
   
-  char *lowers = "abcdefghijklmnopqrstuwxyz";
+  lowers = "abcdefghijklmnopqrstuwxyz";
   int lowers_length = strlen(lowers);
   
-  char *uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  uppers = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   int uppers_length = strlen(uppers);
   
-  char *symbols = "!@#$%^&*()";
+  symbols = "!@#$%^&*()";
   int symbols_length = strlen(symbols);
     
 
