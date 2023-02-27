@@ -10,12 +10,15 @@
 int main(void)
 {
 	int rand_num, sum;
+	time_t t;
 	
+	rand_num = 0;
 	sum = 0;
-	srand(time(NULL) * getpid());
+	srand((unsigned int) time(&t));
+	
 	while (sum < 2772)
 	{
-		rand_num = rand() % 256;
+		rand_num = rand() % 128;
 		if (sum + rand_num > 2772)
 		{
 			break;
