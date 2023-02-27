@@ -11,7 +11,7 @@ int i;
 i = 0;
 while (s[i] != '\0')
 {
-        i++;
+i++;
 }
 
 return (i);
@@ -27,7 +27,7 @@ int i;
 
 for (i = _strlen(s) - 1; i > -1; i--)
 {
-        _putchar(s[i]);
+_putchar(s[i]);
 }
 _putchar('\n');
 }
