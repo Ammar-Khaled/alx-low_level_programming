@@ -25,13 +25,16 @@ int _strlen(char *s)
 void rev_string(char *s)
 {
 	int len, i, j;
+	char tmp;
 
 	len = _strlen(s);
 	i = 0;
 	j = len - 1;
 	while (i <= j)
 	{
+		tmp = s[j];
 		s[j] = s[i];
+		s[i] = tmp;
 		i++;
 		j--;
 	}
