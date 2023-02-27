@@ -32,16 +32,6 @@ int main()
 
   scanf("%d", &length);
   
-
-
-  if (length <= 0)
-  {
-
-    printf("Password length must be >= 1!");
-
-
-    return 1;
-  }
   
   password = malloc(length + 1);
 
