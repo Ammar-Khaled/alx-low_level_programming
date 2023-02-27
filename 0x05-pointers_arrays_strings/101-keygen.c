@@ -18,11 +18,13 @@
 
 int main()
 {
+  int length, i;
+  char *password;
 
   printf("Length: ");
   
 
-  int length;
+
   scanf("%d", &length);
   
 
@@ -36,7 +38,7 @@ int main()
     return 1;
   }
   
-  char *password = malloc(length + 1);
+  password = malloc(length + 1);
 
 
   char *digits = "0123456789";
@@ -54,7 +56,7 @@ int main()
 
   srand(time(NULL) * getpid());
   
-  for (int i = 0; i < length; i++)
+  for (i = 0; i < length; i++)
   {
     int char_type = rand() % 4;
     
