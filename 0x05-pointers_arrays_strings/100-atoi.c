@@ -23,15 +23,18 @@ int _atoi(char *s)
 		if (s[i] == '-')
 		{
 			negatives++;
+			i++;
 			continue;
 		}
 		else if (!_isdigit(s[i]))
 		{
+			i++;
 			continue;
 		}
 
 		ans *= 10;
 		ans += s[i] - '0';
+		i++;
 	}
 	if (negatives % 2 == 1)
 		return (-1 * ans);
