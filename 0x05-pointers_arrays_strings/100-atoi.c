@@ -13,25 +13,31 @@ int _isdigit(int c)
 
 int _atoi(char *s)
 {
-	int ans, negatives, i;
+	unsigned int ans, negatives, i, flag;
 
 	ans = 0;
 	i = 0;
 	negatives = 0;
+
+	flag = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
 		{
+			if (flag)
+				break;
 			negatives++;
 			i++;
 			continue;
 		}
 		else if (!_isdigit(s[i]))
 		{
+			if (flag)
+				break;
 			i++;
 			continue;
 		}
-
+		flag = 1;
 		ans *= 10;
 		ans += s[i] - '0';
 		i++;
