@@ -1,6 +1,7 @@
+#include "main.h"
 /**
  * print_square -  prints a square of hashes, followed by a new line.
- *
+ * @size: size of square
  * Return: void
  */
 void print_square(int size)

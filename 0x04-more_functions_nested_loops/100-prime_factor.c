@@ -7,7 +7,8 @@
  */
 int main(void)
 {
-	int max = 0, n, i;
+	int max = 0, i;
+	long n;
 
 	n = 612852475143;
 	while (n > 1)
@@ -15,19 +16,22 @@ int main(void)
 		if (n % 2 == 0)
 		{
 			n /= 2;
-			max = 2 > max? 2 : max;
+			max = (max < 2) ? 2 : max;
 		}
 		else
 		{
 			for (i = 3; i <= n; i += 2)
 			{
+				if (n % i == 0)
+				{
 				n /= i;
-				max = i > max? i : max;
-				break;	
+				max = (i > max) ? i : max;
+				break;
+				}
 			}
 		}
 
 	}
-	printf("%d", max);
+	printf("%d\n", max);
 	return (0);
 }
