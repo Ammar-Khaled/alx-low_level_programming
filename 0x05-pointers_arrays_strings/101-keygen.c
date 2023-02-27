@@ -2,7 +2,7 @@
  * main - generates random password
  * Return: Always 0
  */
-int main(void)
+char* main(void)
 {
 	return ("~~~~~~~~~~~~~~~~~~~~~~");
 }
