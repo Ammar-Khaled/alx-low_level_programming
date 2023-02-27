@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <unistd.h>
 /**
  * main - generates random password
  * generates random ascii codes that add up to 2772 to crack the program
