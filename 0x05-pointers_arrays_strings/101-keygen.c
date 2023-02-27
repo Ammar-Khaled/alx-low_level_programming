@@ -18,7 +18,7 @@ int main(void)
 	
 	while (sum < 2772)
 	{
-		rand_num = rand() % 128;
+		rand_num = rand() % 127;
 		if (sum + rand_num > 2772)
 		{
 			break;
