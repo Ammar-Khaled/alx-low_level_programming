@@ -9,9 +9,8 @@ void print_array(int *a, int n)
 {
 	int i;
 
-	if (n <= 0)
-		return;
-	for (i = 0; n--; i++)
+	
+	for (i = 0; n-- > 0; i++)
 	{
 		printf("%d", a[i]);
 		if (n != 0)
