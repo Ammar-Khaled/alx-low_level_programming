@@ -23,8 +23,7 @@ int _atoi(char *s)
 	ans = 0;
 	i = 0;
 	negatives = 0;
-
-	flag = 0;		// if i met the num, I will quit just after it
+	flag = 0;
 	while (s[i] != '\0')
 	{
 		if (s[i] == '-')
