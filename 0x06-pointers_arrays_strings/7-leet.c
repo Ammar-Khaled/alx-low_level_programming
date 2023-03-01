@@ -7,15 +7,15 @@
 char *leet(char *s)
 {
 	char letters[] = {'a', 'e', 'o', 't', 'l', 'A', 'E', 'O', 'T', 'L'};
-	char digits[] = {4, 3, 0, 7, 1};
+	char digits[] = {'4', '3', '0', '7', '1'};
 	int i, j;
 
-	for ( i = 0; s[i] != '\0'; i++)
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		for ( j = 0; j < 5; j++)
+		for (j = 0; j < 5; j++)
 		{
-			if (s[i] == letters[j] || letters[j + 5])
-				s[i] = digits[j % 5];
+			if (s[i] == letters[j] || s[i] == letters[j + 5])
+				s[i] = digits[i % 5];
 		}
 	}
 
