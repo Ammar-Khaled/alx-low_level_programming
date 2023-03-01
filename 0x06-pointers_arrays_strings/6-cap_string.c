@@ -1,3 +1,4 @@
+
 int is_separator(char ch)
 {
 	char separators[] = {' ', '\t', '\n', ',', ';', '.',
@@ -13,7 +14,7 @@ int is_separator(char ch)
 	return (0);
 }
 
-int isalpha(char ch)
+int _isalpha(char ch)
 {
 	return ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122));
 }
@@ -26,16 +27,19 @@ int isalpha(char ch)
 char *cap_string(char *s)
 {
 
-	int i,
-	    separated;
+	int i, new_word;
 
-	separated = 1;
+	new_word = 1;
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		if (separated)
+		if (new_word)
 		{
-			separated = 0;
-			s[i] -= 32;
+			new_word = 0;
+			if (s[i] >= 'a' && s[i] <= 'z')
+				s[i] -= 32;
 		}
+		if (_isalpha(s[i + 1]) && is_separator(s[i]))
+			new_word = 1;
 	}
+	return (s);
 }
