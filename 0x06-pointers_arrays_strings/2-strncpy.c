@@ -2,7 +2,7 @@
  * _strncpy - copies n bytes from src to dest
  * @dest: destination string
  * @src: source string
- * @n: number of characters to be copied
+ * @n: number of characters to be copied including the null byte
  * Return: pointer to the destination string
  */
 char *_strncpy(char *dest, char *src, int n)
