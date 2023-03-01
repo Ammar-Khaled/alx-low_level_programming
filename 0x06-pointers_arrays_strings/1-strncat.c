@@ -2,6 +2,7 @@
  * _strncat - appends n bytes from the src string to the dest string
  * @dest: destination string
  * @src: source string
+ * @n: number of characters to be concatinated
  * Return: pointer to the destination string
  */
 char *_strncat(char *dest, char *src, int n)
