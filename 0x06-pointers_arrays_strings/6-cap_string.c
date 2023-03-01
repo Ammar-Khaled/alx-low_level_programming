@@ -1,4 +1,8 @@
-
+/**
+ * is_separator - checks weather the character is a word separator
+ * @ch: the character to be checked
+ * Return: 1 if the char is separator, 0 otherwise.
+ */
 int is_separator(char ch)
 {
 	char separators[] = {' ', '\t', '\n', ',', ';', '.',
@@ -14,6 +18,11 @@ int is_separator(char ch)
 	return (0);
 }
 
+/**
+ * _isalpha - checks weather the character is alphabetic letter
+ * @ch: the character to be checked
+ * Return: 1 if the char is alpha, 0 otherwise.
+ */
 int _isalpha(char ch)
 {
 	return ((ch >= 65 && ch <= 90) || (ch >= 97 && ch <= 122));
