@@ -12,10 +12,10 @@ char *leet(char *s)
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; j < 5; j++)
+		for (j = 0; j < 10; j++)
 		{
 			if (s[i] == letters[j] || s[i] == letters[j + 5])
-				s[i] = digits[i % 5];
+				s[i] = digits[j % 5];
 		}
 	}
 
