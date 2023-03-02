@@ -1,4 +1,3 @@
-#include "main.h"
 
 /**
  * is_separator - checks weather the character is a word separator
