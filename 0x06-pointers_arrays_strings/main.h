@@ -9,3 +9,4 @@ char *cap_string(char *);
 char *leet(char *);
 char *rot13(char *);
 int is_separator(char ch);
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
