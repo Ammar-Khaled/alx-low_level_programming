@@ -1,47 +1,48 @@
 #include <string.h>
+
+void swap(char *str1, char *str2)
+{
+char *temp = str1;
+str1 = str2;
+str2 = temp;
+}
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int len1, len2, carry, max_len;
+	
+	int i, len1, len2, carry;
+
+	if (strlen(n1) > strlen(n2))
+		swap(n1, n2);
+
+	if (size_r < (int)strlen(n2))
+		return 0;
+
+
 	len1 = strlen(n1);
 	len2 = strlen(n2);
-	n1 += strlen(n1) - 1;
-	n2 += strlen(n2) - 1;
+	strrev(n1);
+	strrev(n2);
 	
-	max_len = len1 >= len2 ? len1 : len2;
 	carry = 0;
-	r += max_len - 1;
+	
 
-	if (size_r < max_len)
-		return 0;
-
-	while (len1 > -1 || len2 > -1)
+	for (i = 0; i < len1; i++)
 	{
-		if (len1 && len2)
-		{
-			*r = (((*n1 - '0') + (*n2 - '0') + carry) % 10 ) + '0';
-			carry = (((*n1 - '0') + (*n2 - '0') + carry) / 10 );
-		}
-		else if (len1)
-		{
-			*r = (((*n1 - '0') + carry) % 10 ) + '0';
-			carry = (((*n1 - '0') + carry) / 10 );
-		}
-		else if (len2)
-		{
-			*r = (((*n2 - '0') + carry) % 10 ) + '0';
-                        carry = (((*n2 - '0') + carry) / 10 );
-		}
-		len1--;
-		len2--;
-		n1--;
-		n2--;
-		r--;
+		r[i] = (((n1[i] - '0') + (n2[i] - '0') + carry) % 10 ) + '0';	
+		carry = (((n1[i] - '0') + (n2[i] - '0') + carry) / 10 );
 	}
 
-	if (carry && size_r < max_len + 1)
+	for (; i < len2; i++)
+	{
+		r[i] = (((n2[i] - '0') + carry) % 10 ) + '0';
+		carry = (((n2[i] - '0') + carry) / 10 );
+	}
+
+	if (carry && size_r < (int)strlen(n2) + 1)
 		return 0;
 	else if (carry)
-		*r = '1';
-	
+		r[i] = carry + '0';
+	strrev(r);
 	return (r);
 }
