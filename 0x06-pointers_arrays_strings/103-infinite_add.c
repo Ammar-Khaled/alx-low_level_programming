@@ -11,7 +11,7 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	if (size_r < max_len)
 		return 0;
 
-	for (i = 0; i < max_len; i++)
+	for (i = max_len; i >= 0; i--)
 	{
 		if (len1 && len2)
 		{
