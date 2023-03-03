@@ -63,8 +63,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	len1 = strlen(n1);
 	len2 = strlen(n2);
-	strrev(n1);
-	strrev(n2);
+	rev_string(n1);
+	rev_string(n2);
 	
 	carry = 0;
 	
@@ -85,6 +85,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		return 0;
 	else if (carry)
 		r[i] = carry + '0';
-	strrev(r);
+	rev_string(r);
 	return (r);
 }
