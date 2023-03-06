@@ -1,33 +1,23 @@
 #include <stddef.h>
+#include <string.h>
 
 char *_strstr(char *haystack, char *needle)
 {
-	char *ans, *start_n;
+	size_t i, j;
 
-	start_n = needle;
-	for (; *haystack != '0'; haystack++)
+	for (i = 0; i < strlen(haystack); i++)
 	{
-		ans = haystack;
-		if (*start_n == *haystack)
+		for (j = 0; j < strlen(needle); j++)
 		{
-			ans = haystack;
-			for (;;)
-			{
-				haystack++;
-				needle++;
+			if (haystack[j + i] != needle[j])
+				break;
+		}
 
-				if (*haystack != *needle)
-				{
-					break;
-				}
-
-				if (*needle != '\0')
-				{
-					return (ans);
-				}
-
-			}
+		if (j == strlen(needle))
+		{
+			return (&haystack[i]);
 		}
 	}
+
 	return (NULL);
 }
