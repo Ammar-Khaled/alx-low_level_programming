@@ -7,7 +7,7 @@ char *_strstr(char *haystack, char *needle)
 	start_n = needle;
 	for (; *haystack != '0'; haystack++)
 	{
-		ans = NULL;
+		ans = haystack;
 		if (*start_n == *haystack)
 		{
 			ans = haystack;
