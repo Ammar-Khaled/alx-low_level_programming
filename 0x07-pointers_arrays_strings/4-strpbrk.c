@@ -19,6 +19,10 @@ int accepted(char c, char *accept)
 /**
  * _strpbrk - function locates the first occurrence in the string s
  * of any of the bytes in the string accept
+ * @s: pointer to the string
+ * @accept: pointer to the allowed string
+ * Return: pointer to the first occurrence in the string s
+ * of any of the bytes in the string accept
  */
 char *_strpbrk(char *s, char *accept)
 {
