@@ -6,18 +6,5 @@
  */
 void set_string(char **s, char *to)
 {
-	while (**s != '\0')
-	{
-		if (*to != '\0')
-		{
-			**s = *to;
-			to++;
-			(*s)++;
-		}
-		else
-		{
-			**s = '\0';
-			return;
-		}
-	}
+	*s = t;
 }
