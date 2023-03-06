@@ -29,7 +29,7 @@ char *_strpbrk(char *s, char *accept)
 	while (*s != '\0')
 	{
 		if (accepted(*s, accept))
-			return s;
+			return (s);
 		s++;
 	}
 	return (NULL);
