@@ -5,7 +5,7 @@
  * the same way or not
  * @s: the string
  * @len: the length of the string
- * @Return: 1 if a string is a palindrome and 0 if not.
+ * Return: 1 if a string is a palindrome and 0 if not.
  */
 int is_palindrome(char *s, int len)
 {
