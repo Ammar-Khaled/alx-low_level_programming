@@ -1,3 +1,4 @@
+
 /**
  * _sqrt_recursion - returns the natural square root of a number.
  * @n: the desired number
@@ -10,5 +11,5 @@ int _sqrt_recursion(int n)
 	if (n / r == r)
 		return r;
 	
-	
+
 }

@@ -1,8 +1,10 @@
 
-
-
-
-int is_prime(int n, int cur_test_number = (3))
+/**
+ * _is_prime - checks if the number is prime or not
+ * @n: the number
+ * Return: 1 if the input integer is a prime number, otherwise return 0.
+ */
+int _is_prime(int n, int cur_test_number)
 {
 	if (n == 2)
 		return (1);
@@ -16,5 +18,15 @@ int is_prime(int n, int cur_test_number = (3))
 	if (n % cur_test_number == 0)
 		return (0);
 
-	return is_prime(n, cur_test_number + 2);
+	return (_is_prime(n, cur_test_number + 2));
+}
+
+/**
+ * is_prime - checks if the number is prime or not
+ * @n: the number
+ * Return: 1 if the input integer is a prime number, otherwise return 0.
+ */
+int is_prime_number(int n)
+{
+	return (_is_prime(n, 3));
 }
