@@ -4,7 +4,7 @@ int try(int n, int k)
 	if (k * k >= n)
 		return k;
 
-	try(n, k + 1);
+	return (try(n, k + 1));
 }
 /**
  * _sqrt_recursion - returns the natural square root of a number.
