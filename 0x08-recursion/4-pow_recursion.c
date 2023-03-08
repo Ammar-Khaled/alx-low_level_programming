@@ -1,5 +1,4 @@
 
-
 /**
  * my_pow - find power using recursion
  * @x: the base
@@ -9,6 +8,6 @@
 int _pow_recursion(int x, int y)
 {
 	if (y == 0)
-		return 1;
-	return x * my_pow(x, y - 1);
+		return (1);
+	return (x * my_pow(x, y - 1));
 }
