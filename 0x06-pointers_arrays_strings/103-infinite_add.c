@@ -44,10 +44,26 @@ void rev_string(char *s)
 
 void swap(char *str1, char *str2)
 {
-char *temp = str1;
-str1 = str2;
-str2 = temp;
+char temp;
+
+temp = *str1;
+*str1 = *str2;
+*str2 = temp;
 }
+
+
+void strrev(char* str) {
+    int len, i;
+    
+    len = strlen(str);
+    for (i = 0; i < len/2; i++) {
+        char temp = str[i];
+        str[i] = str[len-1-i];
+        str[len-1-i] = temp;
+    }
+}
+
+
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
@@ -63,8 +79,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
 	len1 = strlen(n1);
 	len2 = strlen(n2);
-	rev_string(n1);
-	rev_string(n2);
+	strrev(n1);
+	strrev(n2);
 	
 	carry = 0;
 	
@@ -85,6 +101,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		return 0;
 	else if (carry)
 		r[i] = carry + '0';
-	rev_string(r);
+	strrev(r);
 	return (r);
 }
