@@ -2,6 +2,9 @@
 #include <stdlib.h>
 /**
  * main - multiplies two numbers.
+ * @argc: number of command line arguments passed to main
+ * @argv: vector of command line arguments passed to main
+ * Return: 0 if success , 1 otherwise
  */
 int main(int argc, char *argv[])
 {

@@ -3,6 +3,9 @@
 /**
  * main -  prints the minimum number of coins to make change
  * for an amount of money.
+ * @argc: number of command line arguments passed to main
+ * @argv: vector of command line arguments passed to main
+ * Return: 0 if success , 1 otherwise
  */
 int main(int argc, char *argv[])
 {
@@ -52,4 +55,5 @@ int main(int argc, char *argv[])
 		cents--;
 	}
 	printf("%d\n", coins);
+	return (0);
 }

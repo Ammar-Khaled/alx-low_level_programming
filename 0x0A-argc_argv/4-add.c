@@ -3,6 +3,9 @@
 #include <string.h>
 /**
  * main - adds positive numbers.
+ * @argc: number of command line arguments passed to main
+ * @argv: vector of command line arguments passed to main
+ * Return: 0 if success , 1 otherwise
  */
 int main(int argc, char *argv[])
 {
@@ -29,4 +32,5 @@ int main(int argc, char *argv[])
 		sum += atoi(argv[i]);
 	}
 	printf("%d\n", sum);
+	return (0);
 }
