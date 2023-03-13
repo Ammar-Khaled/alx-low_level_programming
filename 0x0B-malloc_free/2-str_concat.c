@@ -14,13 +14,18 @@ char *str_concat(char *s1, char *s2)
 
 	i = 0;
 	size = 0;
-	while (s1[i++] != NULL)
-		size++;
+	if (s1 != NULL)
+	{
+		while (s1[i++] != '\0')
+			size++;
+	}
 
 	i = 0;
-	while (s2[i++] != NULL)
-		size++;
-
+	if (s2 != NULL)
+	{
+		while (s2[i++] != '\0')
+			size++;
+	}
 	/* increase size for the null byte */
 	size++;
 
@@ -30,8 +35,8 @@ char *str_concat(char *s1, char *s2)
 
 	for (i = 0; s1[i] != '\0'; i++)
 		p[i] = s1[i];
-	
-	for ( j = 0; s2[j] != '\0'; j++, i++)
+
+	for (j = 0; s2[j] != '\0'; j++, i++)
 	{
 		p[i] = s2[j];
 	}
