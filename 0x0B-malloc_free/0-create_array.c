@@ -16,5 +16,8 @@ char *create_array(unsigned int size, char c)
 	if (p == NULL)
 		return (NULL);
 
+	while (size--)
+		*p++ == c;
+	
 	return (p);
 }
