@@ -11,9 +11,9 @@ char **strtow(char *str)
 {
 	char **p;
 	int i, j, index, k, count;
-	char word[INT_MAX];
 
-	if (str == NULL || *str == '\0') return (NULL);
+	if (str == NULL || *str == '\0')
+		return (NULL);
 
 	count = 0;
 	for (i = 0; str[i] != '\0'; i++)
@@ -27,25 +27,23 @@ char **strtow(char *str)
 		return (NULL);
 
 	count = j = index = 0;
-	*word = '\0';
+
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] != ' ')
 		{
-			word[j++] = str[i];
 			count++;
-		}	
-		else if (*word != '\0')
+		}
+		else if (count != 0)
 		{
 			p[index] = malloc((sizeof(char) * count) + 1);
-			for (k = 0; k < count; k++)
+			for (j = 0, k = i - count; k < i; j++, k++)
 			{
-				p[index][k] = word[k];
+				p[index][j] = str[k];
 			}
-			p[index][k] = '\0';
+			p[index][j] = '\0';
 			index++;
 			count = j = 0;
-			*word = '\0';
 		}
 	}
 	p[index] = NULL;
