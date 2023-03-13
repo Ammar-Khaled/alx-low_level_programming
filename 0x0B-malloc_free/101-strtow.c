@@ -15,6 +15,7 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 
+	/* count words*/
 	count = 0;
 	for (i = 0; str[i] != '\0'; i++)
 	{
@@ -25,7 +26,7 @@ char **strtow(char *str)
 	if (count == 0)
 		return (NULL);
 
-	p = malloc((count * sizeof(char *)) + 1);
+	p = malloc((count + 1) * sizeof(char *));
 	if (p == NULL)
 		return (NULL);
 
