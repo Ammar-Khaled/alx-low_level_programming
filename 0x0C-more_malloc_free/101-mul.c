@@ -57,10 +57,21 @@ int main(int argc, char *argv[])
 		for (j = len2 - 1; j >= 0; j++)
 		{
 			product = (argv[1][i] - '0') * (argv[2][j] - '0');
-
+			sum = product + carry + result[i + j + 1];
+			result[i + j + i] = (sum % 10) + '0';
+			carry = sum / 10;
 		}
+		result[i] += carry;
 	}
 	
-
+	// Remove leading zeros from the result
+	for (i = 0; i < len3 - 1 && result[i] == '0'; i++);
+		if (i > 0)
+		{
+		memmove(result, result + i, len3 - i);
+		result[len3 - i] = '\0';
+		}
+	}
+	printf("%s\n", result);
 	return (0);
 }
