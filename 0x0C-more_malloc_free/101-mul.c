@@ -3,6 +3,45 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+
+/**
+ * print_error - indicates errors happening
+ */
+void print_error(void)
+{
+	printf("Error\n");
+	exit(98);
+}
+
+/**
+ * validate_num - checks that num consists of digits only
+ * @num: the number to be validated
+ * Return: exits the program if num is not valid
+ */
+void validate_num(char *num)
+{
+	int i, len;
+
+	len = strlen(num);
+	for (i = 0; i < len; i++)
+	{
+		if (!isdigit(num[i]))
+			print_error();
+	}
+}
+
+/**
+ * print_result - prints the product
+ * @result: pointer to the result
+ */
+void print_result(char *result)
+{
+	int i;
+
+	for (i = 0; result[i] != '\0'; i++)
+		_putchar(result[i]);
+	_putchar('\n');
+}
 /**
  * main - multiplies two positive numbers.
  * @argc: arguments count
@@ -15,45 +54,20 @@ int main(int argc, char *argv[])
 	char *result;
 
 	if (argc != 3)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
+		print_error();
 	len1 = strlen(argv[1]);
 	len2 = strlen(argv[2]);
 	len3 = len1 + len2;
-
-
-	for (i = 0; i < len1; i++)
-	{
-		if (!isdigit(argv[1][i]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-	}
-
+	validate_num(argv[1]);
+	validate_num(argv[2]);
 	for (i = 0; i < len2; i++)
-	{
 		if (!isdigit(argv[2][i]))
-		{
-			printf("Error\n");
-			exit(98);
-		}
-	}
-
-
-	result = (char *)  malloc(len3 + 1);
+			print_error();
+	result = (char *)malloc(len3 + 1);
 	if (!result)
-	{
-		printf("Error\n");
-		exit(98);
-	}
-
+		print_error();
 	memset(result, '0', len3);
 	result[len3] = '\0';
-
 	for (i = len1 - 1; i >= 0; i--)
 	{
 		carry = 0;
@@ -66,19 +80,14 @@ int main(int argc, char *argv[])
 		}
 		result[i] += carry;
 	}
-
-	/* Remove leading zeros from the result */
 	for (i = 0; i < len3 - 1 && result[i] == '0'; i++)
 		;
 	if (i > 0)
 	{
-	memmove(result, result + i, len3 - i);
-	result[len3 - i] = '\0';
+		memmove(result, result + i, len3 - i);
+		result[len3 - i] = '\0';
 	}
-	
-	for (i = 0; result[i] != '\0'; i++)
-		_putchar(result[i]);
-	_putchar('\n');
+	print_result(result);
 	free(result);
 	return (0);
 }
