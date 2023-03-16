@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
+#include <ctype.h>
 /**
  * main - multiplies two positive numbers.
  * @argc: arguments count
@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	for (i = 0; i < strlen(argv[1]); i++)
+	for (i = 0; i < (int) strlen(argv[1]); i++)
 	{
 		if (!isdigit(argv[1][i]))
 		{
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 		}
 	}
 
-	for (i = 0; i < strlen(argv[2]); i++)
+	for (i = 0; i < (int) strlen(argv[2]); i++)
 	{
 		if (!isdigit(argv[2][i]))
 		{
@@ -64,14 +64,13 @@ int main(int argc, char *argv[])
 		result[i] += carry;
 	}
 	
-	// Remove leading zeros from the result
+	/* Remove leading zeros from the result */
 	for (i = 0; i < len3 - 1 && result[i] == '0'; i++);
-		if (i > 0)
-		{
+	if (i > 0) {
 		memmove(result, result + i, len3 - i);
 		result[len3 - i] = '\0';
-		}
 	}
+	
 	printf("%s\n", result);
 	return (0);
 }
