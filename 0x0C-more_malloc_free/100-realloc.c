@@ -1,13 +1,22 @@
 #include <stdlib.h>
 #include <string.h>
-#include <math.h>
+/**
+ * min - find min of two nums
+ * @a: first num
+ * @b: second num
+ * Return: min of a and b
+*/
+int min(int a, int b)
+{
+	return (a < b) ? (a) : (b);
+}
+
 /**
  * _realloc - reallocates a memory block using malloc and free
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	void *tmp;
-	int i;
 
 	if (ptr == NULL)
 		return (malloc(new_size));
