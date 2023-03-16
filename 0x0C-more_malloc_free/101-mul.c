@@ -1,3 +1,4 @@
+#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -74,6 +75,9 @@ int main(int argc, char *argv[])
 	memmove(result, result + i, len3 - i);
 	result[len3 - i] = '\0';
 	}
-	printf("%s\n", result);
+	
+	for (i = 0; result[i] != '\0'; i++)
+		_putchar(result[i]);
+	_putchar('\n');
 	return (0);
 }
