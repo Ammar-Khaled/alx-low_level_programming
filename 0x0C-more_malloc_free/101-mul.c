@@ -12,16 +12,17 @@ int main(int argc, char *argv[])
 {
 	int i, j, carry, product, sum, len1, len2, len3;
 	char *result;
-	
-	len1 = strlen(argv[1]);
-	len2 = strlen(argv[2]);
-	len3 = len1 + len2;
 
 	if (argc != 3)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+
+	len1 = strlen(argv[1]);
+	len2 = strlen(argv[2]);
+	len3 = len1 + len2;
+
 
 	for (i = 0; i < len1; i++)
 	{
