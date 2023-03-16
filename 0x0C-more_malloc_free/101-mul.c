@@ -53,23 +53,27 @@ int main(int argc, char *argv[])
 	memset(result, '0', len3);
 	result[len3] = '\0';
 
-	for (i = len1 - 1; i >= 0; i--) {
-        carry = 0;
-        for (j = len2 - 1; j >= 0; j--) {
-            product = (argv[1][i] - '0') * (argv[2][j] - '0');
-            sum = result[i + j + 1] - '0' + product + carry;
-            result[i + j + 1] = sum % 10 + '0';
-            carry = sum / 10;
-        }
-        result[i] += carry;
- 	}	
-	
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		carry = 0;
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			product = (argv[1][i] - '0') * (argv[2][j] - '0');
+			sum = result[i + j + 1] - '0' + product + carry;
+			result[i + j + 1] = sum % 10 + '0';
+			carry = sum / 10;
+		}
+		result[i] += carry;
+	}
+
 	/* Remove leading zeros from the result */
-	for (i = 0; i < len3 - 1 && result[i] == '0'; i++);
-    	if (i > 0) {
-        memmove(result, result + i, len3 - i);
-        result[len3 - i] = '\0';
-    	}	
+	for (i = 0; i < len3 - 1 && result[i] == '0'; i++)
+		;
+	if (i > 0)
+	{
+	memmove(result, result + i, len3 - i);
+	result[len3 - i] = '\0';
+	}
 	printf("%s\n", result);
 	return (0);
 }
