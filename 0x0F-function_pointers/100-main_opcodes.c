@@ -3,7 +3,7 @@
 
 /**
  * main - check the code for Holberton School students.
- * @argc: argument count.
+ * @argc: argument counter
  * @argv: argument vector.
  *
  * Return: Always 0.
