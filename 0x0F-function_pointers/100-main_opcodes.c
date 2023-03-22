@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	char *opc = (char *) main;
+	char *opc;
 	int i, nbytes;
 
 	if (argc != 2)
@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	}
 
 	nbytes = atoi(argv[1]);
-
+	opc = (char *) main;
 	if (nbytes < 0)
 	{
 		printf("Error\n");
