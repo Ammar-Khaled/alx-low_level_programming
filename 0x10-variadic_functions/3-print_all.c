@@ -3,79 +3,52 @@
 
 /**
  * print_all - prints anything.
- * @format: a list of types of arguments passed to the function
- * c: char
- * i: integer
- * f: float
- * s: char * (if the string is NULL, print (nil) instead)
- * any other char is ignored
+ * @format: a list of types of arguments passed to the function.
+ *
+ * Return: no return.
  */
 void print_all(const char *const format, ...)
 {
-	va_list args;
-	int i, first_printed;
-	char *s;
+	va_list valist;
+	unsigned int i = 0, j, c = 0;
+	char *str;
+	const char t_arg[] = "cifs";
 
-	va_start(args, format);
-	i = 0;
-	first_printed = 0;
-	/* print first arg */
-	while (format[i] != '\0' && !first_printed)
+	va_start(valist, format);
+	while (format && format[i])
 	{
+		j = 0;
+		while (t_arg[j])
+		{
+			if (format[i] == t_arg[j] && c)
+			{
+				printf(", ");
+				break;
+			}
+			j++;
+		}
 		switch (format[i])
 		{
 		case 'c':
-			first_printed = 1;
-			printf("%c", va_arg(args, int));
+			printf("%c", va_arg(valist, int)), c = 1;
 			break;
 		case 'i':
-			first_printed = 1;
-			printf("%i", va_arg(args, int));
+			printf("%d", va_arg(valist, int)), c = 1;
 			break;
 		case 'f':
-			first_printed = 1;
-			printf("%f", va_arg(args, double));
+			printf("%f", va_arg(valist, double)), c = 1;
 			break;
 		case 's':
-			first_printed = 1;
-			s = va_arg(args, char*);
-			if (s)
-				printf("%s", s);
-			else
+			str = va_arg(valist, char *), c = 1;
+			if (!str)
+			{
 				printf("(nil)");
-			break;
-		default:
-			break;
-		}
-		i++;
-	}
-
-	while (format[i] != '\0')
-	{
-		switch (format[i])
-		{
-		case 'c':
-			printf(", %c", va_arg(args, int));
-			break;
-		case 'i':
-			printf(", %i", va_arg(args, int));
-			break;
-		case 'f':
-			printf(", %f", va_arg(args, double));
-			break;
-		case 's':
-			s = va_arg(args, char *);
-			if (s)
-				printf(", %s", s);
-			else
-				printf(", (nil)");
-			break;
-		default:
+				break;
+			}
+			printf("%s", str);
 			break;
 		}
 		i++;
 	}
-
-	va_end(args);
-	printf("\n");
+	printf("\n"), va_end(valist);
 }
