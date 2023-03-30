@@ -9,6 +9,7 @@
  */
 list_t *add_node_end(list_t **head, const char *str)
 {
+	int nchar;
 	list_t *tail;
 	/* Create a new node */
 	list_t *new = (list_t *)malloc(sizeof(list_t));
@@ -18,8 +19,9 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	new->next = NULL; /* as it will be at the end */
 	new->str = strdup(str);
-	new->len = strlen(new->str);
-
+	for (nchar = 0; str[nchar]; nchar++);
+	new->len = nchar;
+	
 	if (!(*head)) /* if the new node is the first node */
 	{
 		*head = new;
