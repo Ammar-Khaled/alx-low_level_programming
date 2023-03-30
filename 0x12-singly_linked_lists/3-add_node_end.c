@@ -19,9 +19,10 @@ list_t *add_node_end(list_t **head, const char *str)
 
 	new->next = NULL; /* as it will be at the end */
 	new->str = strdup(str);
-	for (nchar = 0; str[nchar]; nchar++);
+	for (nchar = 0; str[nchar]; nchar++)
+		;
 	new->len = nchar;
-	
+
 	if (!(*head)) /* if the new node is the first node */
 	{
 		*head = new;
