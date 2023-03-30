@@ -7,7 +7,7 @@
 void free_list(list_t *head)
 {
 	list_t *next_node;
-	
+
 	while (head)
 	{
 		/* Save the next pointer to a temporary variable */
