@@ -1,27 +1,6 @@
 #include "lists.h"
 
 /**
- * distance - finds the length of the list from `first` to `last`
- * @first: pointer to the first node
- * @last: pointer to the last node
- *
- * Return: the number of nodes between first and last
- */
-/*size_t distance(listint_t *first, listint_t *last)
-{
-	int count = 0;
-	listint_t *current = first;
-
-	while (current != last)
-	{
-		current = current->next;
-		count++;
-	}
-
-	return (count + 1);
-}
-*/
-/**
  * find_listint_loop - finds the loop in a linked list by storing the length
  * @head: pointer to the list
  *
@@ -30,17 +9,25 @@
  */
 listint_t *find_listint_loop(listint_t *head)
 {
-	listint_t *last;
-	size_t previous_length;
+	listint_t *S, *F;
 
-	last = head;
-	previous_length = 0;
+	S = F = head;
 
-	while (last && distance(head, last) > previous_length)
+	while (S && F && F->next)
 	{
-		previous_length = distance(head, last);
-		last = last->next;
+		S = S->next;
+		F = F->next->next;
+		if (S == F)
+		{
+			S = head;
+			while (S != F)
+			{
+				S = S->next;
+				F = F->next;
+			}
+			return (S);
+		}
 	}
 
-	return (last);
+	return (NULL);
 }
