@@ -6,18 +6,19 @@
  */
 void free_listint2(listint_t **head)
 {
-	listint_t *next_node;
+	listint_t *next_node, *current;
 
-	while (*head)
+	current = *head;
+	while (current)
 	{
 		/* Save the next pointer to a temporary variable */
-		next_node = (*head)->next;
+		next_node = current->next;
 
 		/* Free the current node */
-		free(*head);
+		free(current);
 
 		/* Set the current pointer to the next node */
-		*head = next_node;
+		current = next_node;
 	}
 
 	*head = NULL;
