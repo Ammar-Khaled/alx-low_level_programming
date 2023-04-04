@@ -28,18 +28,45 @@ size_t len(listint_t *first, listint_t *last)
  * Return: the size of the list that was free’d
  */
 size_t free_listint_safe(listint_t **h)
-{
-	size_t count = 0;
-	listint_t *current, *tmp;
+{	
+	
+	size_t count = 0, previous_length = 0;
+	listint_t *first, *last, *current, *tmp;
 
+	if (!(*h))
+	{
+		return (0);
+	}
+
+	/*detect a loop in the list*/
+	first = last = *h;
+	while (last && len(first, last) > previous_length)
+	{
+		previous_length = len(first, last);
+		count++;
+		last = last->next;
+	}
+
+	/*check whether the list contains a loop*/
+	if (last)
+	{
+		first = last;
+		while (last->next != first)
+		{
+			last = last->next;
+		}
+		last->next = NULL;	/*remove the loop*/
+	}
+	
+	/*now we can safly free the list*/
 	current = *h;
-	while (current->next)
+	while (current)
 	{
 		tmp = current->next;
 		free(current);
 		current = tmp;
-		count++;
 	}
+
 	*h = NULL;
 	return (count);
 }

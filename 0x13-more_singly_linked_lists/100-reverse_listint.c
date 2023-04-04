@@ -3,26 +3,29 @@
 /**
  * reverse_listint -  reverses a listint_t linked list.
  * @head: pointer to pointer to the list
+ *
+ * Return: pointer to the new reversed list
  */
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *next, *tmp;
+	listint_t *prevNode, *curNode;
 
 	if (!(*head))
 		return (NULL);
 
-	next = (*head)->next;
-	tmp = next->next;
-	(*head)->next = NULL;
-	while (tmp)
-	{
-		next->next = *head;
-		*head = next;
-		next = tmp;
-		tmp = tmp->next;
-	}
-	next->next = *head;
-	*head = next;
+	prevNode = (*head);
+	*head = (*head)->next;
+	curNode = *head;
 
-	return (NULL);
+	prevNode->next = NULL; /*disconnect first node*/
+
+	while (*head)
+	{
+		*head = (*head)->next;
+		curNode->next = prevNode;
+		prevNode = curNode;
+		curNode = (*head);
+	}
+	*head = prevNode;
+	return (*head);
 }
