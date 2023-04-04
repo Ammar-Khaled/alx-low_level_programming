@@ -35,7 +35,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 	if (index >= listint_len(*head))
 		return (-1);
-	
+
 	if (index == 0)
 	{
 		tmp = (*head)->next;

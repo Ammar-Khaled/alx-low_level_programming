@@ -31,6 +31,7 @@ size_t listint_len(const listint_t *h)
 listint_t *add_nodeint(listint_t **head, const int n)
 {
 	listint_t *new = malloc(sizeof(listint_t));
+
 	if (!new)
 		return (NULL);
 
@@ -46,7 +47,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
  * @head: pointer to pointer to the list
  * @idx:  the index of the list where the new node should be added (0-based).
  * @n: the integer value of the new node
- * 
+ *
  * Return: the address of the new node, or NULL if it failed
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
@@ -57,7 +58,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (idx == 0)
 		return (add_nodeint(head, n));
 
-	if (idx > listint_len(*head)) 
+	if (idx > listint_len(*head))
 		return (NULL);
 
 	current = *head;
