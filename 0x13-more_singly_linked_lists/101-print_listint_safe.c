@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdio.h>
+
 /**
  * length - finds the length of the list from `first` to `last`
  * @first: pointer to the first node
@@ -9,7 +10,7 @@
  */
 size_t length(const listint_t *first, const listint_t *last)
 {
-	size_t count = 0;
+	int count = 0;
 	const listint_t *current = first;
 
 	while (current != last)
