@@ -1,16 +1,6 @@
 #include "lists.h"
 
 /**
- * Algorithm:
- * two pointers are created, first (always points to head) and last.
- * Each time the last pointer moves calculate no of nodes 
- * between first and last.
- * check whether the current no of nodes > previous no of nodes
- * If yes we proceed by moving the last pointer
- * Else it means we’ve reached the end of the loop, so return output accordingly
-*/
-
-/**
  * distance - finds the length of the list from `first` to `last`
  * @first: pointer to the first node
  * @last: pointer to the last node
@@ -45,7 +35,7 @@ listint_t *find_listint_loop(listint_t *head)
 
 	last = head;
 	previous_length = 0;
-	
+
 	while (last && distance(head, last) > previous_length)
 	{
 		previous_length = distance(head, last);

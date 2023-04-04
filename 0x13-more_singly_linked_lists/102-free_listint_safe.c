@@ -23,13 +23,13 @@ size_t len(listint_t *first, listint_t *last)
 
 /**
  * free_listint_safe - free a listint_t linked list with a loop
- * @head: pointer to pointer to the list
+ * @h: pointer to pointer to the list
  *
  * Return: the size of the list that was free’d
  */
 size_t free_listint_safe(listint_t **h)
-{	
-	
+{
+
 	size_t count = 0, previous_length = 0;
 	listint_t *first, *last, *current, *tmp;
 
@@ -57,7 +57,7 @@ size_t free_listint_safe(listint_t **h)
 		}
 		last->next = NULL;	/*remove the loop*/
 	}
-	
+
 	/*now we can safly free the list*/
 	current = *h;
 	while (current)
