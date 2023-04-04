@@ -7,7 +7,7 @@
  *
  * Return: the number of nodes between first and last
  */
-size_t distance(listint_t *first, listint_t *last)
+/*size_t distance(listint_t *first, listint_t *last)
 {
 	int count = 0;
 	listint_t *current = first;
@@ -20,7 +20,7 @@ size_t distance(listint_t *first, listint_t *last)
 
 	return (count + 1);
 }
-
+*/
 /**
  * find_listint_loop - finds the loop in a linked list by storing the length
  * @head: pointer to the list
