@@ -25,11 +25,11 @@ unsigned int binary_to_uint(const char *b)
 	{
 		if ((b[i] - '0') > 9 || (b[i] - '0') < 0)
 			return (0);
-		
+
 		ans += (b[i] - '0') * place_value;
 		i--;
 		place_value *= 2;
 	}
-	
+
 	return (ans);
 }
