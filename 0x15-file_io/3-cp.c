@@ -2,9 +2,9 @@
 #include <stdio.h>
 
 /**
- * error_file - checks if files can be opened.
- * @file_from: file_from.
- * @file_to: file_to.
+ * print_file_error - checks if files can be opened.
+ * @file_from_fd: file_from.
+ * @file_to_fd: file_to.
  * @argv: arguments vector.
  * Return: no return.
  */
@@ -40,32 +40,25 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		return (97);
 	}
-
 	fd1 = open(argv[1], O_RDONLY);
 	fd2 = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	print_file_error(fd1, fd2, argv);
-
 	nchars = 1024;
 	while (nchars == 1024)
 	{
 		nchars = read(fd1, buf, 1024);
 		if (nchars == -1)
-		{
 			print_file_error(-1, 0, argv);
-		}
 		nwritten = write(fd2, buf, nchars);
 		if (nwritten == -1)
-		{
 			print_file_error(0, -1, argv);
-		}
 	}
-	
+
 	if (close(fd1) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd1);
 		return (100);
 	}
-
 	if (close(fd2) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd2);
