@@ -139,7 +139,7 @@ void print_data(char *ptr)
 {
 	char data;
 
-	data = ptr[5] + '0';
+	data = ptr[5];
 	printf("  Data:                              2's complement");
 	if (data == 1)
 		printf(", little endian\n");
@@ -159,7 +159,7 @@ void print_magic(char *ptr)
 	printf("  Magic:  ");
 	for (i = 0; i < 16; i++)
 	{
-		printf("%02x", ptr[i]);
+		printf("%02x ", ptr[i]);
 	}
 	printf("\n");
 }
