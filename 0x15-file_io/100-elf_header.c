@@ -57,7 +57,7 @@ void print_addr(char *ptr)
  */
 void print_type(char *ptr)
 {
-	char type;
+	char type = ptr[16];
 
 	if (ptr[5] == 1)
 		type = ptr[16];
@@ -65,27 +65,18 @@ void print_type(char *ptr)
 		type = ptr[17];
 
 	printf("  Type:                              ");
-	switch (type)
-	{
-	case 0:
+	if (type == 0)
 		printf("NONE (No file type)\n");
-		break;
-	case 1:
+	else if (type == 1)
 		printf("REL (Relocatable file)\n");
-		break;
-	case 2:
+	else if (type == 2)
 		printf("EXEC (Executable file)\n");
-		break;
-	case 3:
+	else if (type == 3)
 		printf("DYN (Shared object file)\n");
-		break;
-	case 4:
+	else if (type == 4)
 		printf("CORE (Core file)\n");
-		break;
-	default:
+	else
 		printf("<unknown: %x>\n", type);
-		break;
-	}
 }
 
 /**
@@ -95,28 +86,21 @@ void print_type(char *ptr)
  */
 void print_osabi(char *ptr)
 {
-	char osabi;
+	char osabi = ptr[7];
 
-	osabi = ptr[7];
 	printf("  OS/ABI:                            ");
-	switch (osabi)
-	{
-	case 0:
+	if (osabi == 0)
 		printf("UNIX - System V\n");
-		break;
-	case 2:
+	else if (osabi == 2)
 		printf("UNIX - NetBSD\n");
-		break;
-	case 3:
+	else if (osabi == 6)
 		printf("UNIX - Solaris\n");
-		break;
-	default:
+	else
 		printf("<unknown: %x>\n", osabi);
-		break;
-	}
 
 	printf("  ABI Version:                       %d\n", ptr[8]);
 }
+
 /**
  * print_version - prints version
  * @ptr: magic.
@@ -124,15 +108,15 @@ void print_osabi(char *ptr)
  */
 void print_version(char *ptr)
 {
-	int version;
+	int version = ptr[6];
 
-	version = ptr[6];
 	printf("  Version:                           %d", version);
+
 	if (version == EV_CURRENT)
 		printf(" (current)");
+
 	printf("\n");
 }
-
 /**
  * print_data - prints data
  * @ptr: magic.
@@ -140,16 +124,15 @@ void print_version(char *ptr)
  */
 void print_data(char *ptr)
 {
-	char data;
+	char data = ptr[5];
 
-	data = ptr[5];
 	printf("  Data:                              2's complement");
 	if (data == 1)
 		printf(", little endian\n");
-	else if (data == 2)
+
+	if (data == 2)
 		printf(", big endian\n");
 }
-
 /**
  * print_magic - prints magic info.
  * @ptr: magic.
@@ -157,41 +140,37 @@ void print_data(char *ptr)
  */
 void print_magic(char *ptr)
 {
-	int i;
+	int bytes;
 
 	printf("  Magic:  ");
-	for (i = 0; i < 16; i++)
-	{
-		printf("%02x ", ptr[i]);
-	}
+
+	for (bytes = 0; bytes < 16; bytes++)
+		printf(" %02x", ptr[bytes]);
+
 	printf("\n");
 }
 
 /**
- * read_header -displays the header information of elf file
+ * check_sys - check the version system.
  * @ptr: magic.
  * Return: no return.
  */
-void read_header(char *ptr)
+void check_sys(char *ptr)
 {
+	char sys = ptr[4] + '0';
 
-	char class;
-
-	class = ptr[4];
-	if (class == 0)
+	if (sys == '0')
 		exit(98);
 
 	printf("ELF Header:\n");
 	print_magic(ptr);
 
-	if (class == 1)
-	{
+	if (sys == '1')
 		printf("  Class:                             ELF32\n");
-	}
-	else if (class == 2)
-	{
+
+	if (sys == '2')
 		printf("  Class:                             ELF64\n");
-	}
+
 	print_data(ptr);
 	print_version(ptr);
 	print_osabi(ptr);
@@ -206,21 +185,27 @@ void read_header(char *ptr)
  */
 int check_elf(char *ptr)
 {
-	if ((int)ptr[0] == 127 && ptr[1] == 'E' && ptr[2] == 'L' && ptr[3] == 'F')
+	int addr = (int)ptr[0];
+	char E = ptr[1];
+	char L = ptr[2];
+	char F = ptr[3];
+
+	if (addr == 127 && E == 'E' && L == 'L' && F == 'F')
 		return (1);
+
 	return (0);
 }
 
 /**
- * main - displays elf header
+ * main - check the code for Holberton School students.
  * @argc: number of arguments.
  * @argv: arguments vector.
- * Return: Always 0. (Success)
+ * Return: Always 0.
  */
 int main(int argc, char *argv[])
 {
-	int fd;
-	char buf[27];
+	int fd, ret_read;
+	char ptr[27];
 
 	if (argc != 2)
 	{
@@ -229,26 +214,29 @@ int main(int argc, char *argv[])
 	}
 
 	fd = open(argv[1], O_RDONLY);
-	if (fd == -1)
+
+	if (fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
 
 	lseek(fd, 0, SEEK_SET);
-	if (read(fd, buf, 27) == -1)
+	ret_read = read(fd, ptr, 27);
+
+	if (ret_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
 	}
 
-	if (check_elf(buf) == 0)
+	if (!check_elf(ptr))
 	{
-		dprintf(STDERR_FILENO, "Error: not an ELF\n");
+		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
 		exit(98);
 	}
 
-	read_header(buf);
+	check_sys(ptr);
 	close(fd);
 
 	return (0);
