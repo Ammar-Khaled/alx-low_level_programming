@@ -145,7 +145,7 @@ void print_data(char *buf)
 void print_magic(char *buf)
 {
 	int i;
-
+	printf("ELF Header:\n");
 	printf("  Magic:  ");
 
 	for (i = 0; i < 16; i++)
@@ -162,8 +162,6 @@ void print_magic(char *buf)
 void print_class(char *buf)
 {
 	char sys = buf[4] + '0';
-
-	printf("ELF Header:\n");
 
 	if (sys == '1')
 		printf("  Class:                             ELF32\n");
