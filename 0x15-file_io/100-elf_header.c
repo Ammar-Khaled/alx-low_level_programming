@@ -7,46 +7,49 @@
 #include <elf.h>
 
 /**
- * print_addr - prints address of the entry point
+ * print_addr - prints address
  * @ptr: magic.
  * Return: no return.
  */
 void print_addr(char *ptr)
 {
-	int i, begin;
+	int i;
+	int begin;
 	char sys;
 
 	printf("  Entry point address:               0x");
-	sys = ptr[4];
-	if (sys == 1)/*32-bit*/
+
+	sys = ptr[4] + '0';
+	if (sys == '1')
 	{
 		begin = 26;
 		printf("80");
-		for (i = begin; i > 21; i--)
+		for (i = begin; i >= 22; i--)
 		{
 			if (ptr[i] > 0)
 				printf("%x", ptr[i]);
 			else if (ptr[i] < 0)
-				printf("%x", ptr[i] + 256);
+				printf("%x", 256 + ptr[i]);
 		}
 		if (ptr[7] == 6)
 			printf("00");
 	}
 
-	if (sys == 2)
+	if (sys == '2')
 	{
 		begin = 26;
 		for (i = begin; i > 23; i--)
 		{
-			if (ptr[i] > 0)
-				printf("%x", ptr[i]);
+			if (ptr[i] >= 0)
+				printf("%02x", ptr[i]);
+
 			else if (ptr[i] < 0)
-				printf("%x", ptr[i] + 256);
+				printf("%02x", 256 + ptr[i]);
 		}
 	}
-
 	printf("\n");
 }
+
 /**
  * print_type - prints type
  * @ptr: magic.
