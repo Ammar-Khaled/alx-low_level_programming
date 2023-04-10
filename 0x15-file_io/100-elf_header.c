@@ -18,7 +18,6 @@ void print_addr(char *buf)
 	char sys;
 
 	printf("  Entry point address:               0x");
-
 	sys = buf[4] + '0';
 	if (sys == '1') /* if 32-bit */
 	{
@@ -40,7 +39,6 @@ void print_addr(char *buf)
 			 */
 			printf("00");
 	}
-
 	if (sys == '2')
 	{
 		begin = 26;
@@ -210,32 +208,25 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
 		exit(98);
 	}
-
 	fd = open(argv[1], O_RDONLY);
-
 	if (fd < 0)
 	{
 		dprintf(STDERR_FILENO, "Err: file can not be open\n");
 		exit(98);
 	}
-
 	lseek(fd, 0, SEEK_SET); /*seek to the start of elf header*/
-
 	/*read only the first 27 byte (until the entry address)*/
 	n_read = read(fd, buf, 27);
-
 	if (n_read == -1)
 	{
 		dprintf(STDERR_FILENO, "Err: The file can not be read\n");
 		exit(98);
 	}
-
 	if (!check_elf(buf))
 	{
 		dprintf(STDERR_FILENO, "Err: It is not an ELF\n");
 		exit(98);
 	}
-
 	sys = buf[4] + '0';
 	if (sys == '0') /*class must be only 1 or 2*/
 		exit(98);
@@ -246,8 +237,6 @@ int main(int argc, char *argv[])
 	print_osabi(buf);
 	print_type(buf);
 	print_addr(buf);
-
 	close(fd);
-
 	return (0);
 }
