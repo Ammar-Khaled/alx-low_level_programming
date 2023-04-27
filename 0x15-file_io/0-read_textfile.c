@@ -23,7 +23,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buf = malloc(sizeof(char) * letters);
 	if (!buf)
 		return (0);
-	
+
 	read_count = read(fd, buf, letters);
 	write_count = write(STDOUT_FILENO, buf, read_count);
 
