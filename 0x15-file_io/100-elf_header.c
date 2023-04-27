@@ -145,6 +145,7 @@ void print_data(char *buf)
 void print_magic(char *buf)
 {
 	int i;
+
 	printf("ELF Header:\n");
 	printf("  Magic:  ");
 
