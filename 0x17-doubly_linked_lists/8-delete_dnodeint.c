@@ -7,12 +7,13 @@
  *
  * Return: 1 if it succeeded, -1 if it failed
  */
-int delete_nodeint_at_index(dlistint_t **head, unsigned int index)
+int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
 	dlistint_t *h1, *h2;
 	unsigned int i;
 
 	h1 = *head;
+	h2 = NULL;
 	if (h1)
 	{
 		while (h1->prev)
@@ -45,6 +46,6 @@ int delete_nodeint_at_index(dlistint_t **head, unsigned int index)
 		i++;
 	}
 
-	
+
 	return (-1);
 }
