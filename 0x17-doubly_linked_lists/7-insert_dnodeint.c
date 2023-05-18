@@ -31,31 +31,43 @@ size_t dlistint_len(const dlistint_t *h)
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i;
-	dlistint_t *current, *new;
+	dlistint_t *head, *new;
 
+	new = NULL;
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 
-	if (idx == dlistint_len(*h)- 1)
-		return (add_dnodeint_end(h, n));
-
-	if (idx > dlistint_len(*h))
-		return (NULL);
-
-	current = *h;
-	for (i = 1; i <= idx - 1; i++)
+	head = *h;
+	i = 1;
+	
+	if (head)
 	{
-		current = current->next;
+		while (head->prev)
+			head = head->prev;
+
+		while (head)
+		{
+			if (i == idx)
+			{
+				if (!head->next)
+					return (add_dnodeint_end(h, n));
+				else
+				{
+					new = malloc(sizeof(dlistint_t));
+					if (!new)
+						return (NULL);
+
+					new->n = n;
+					new->next = head->next;
+					new->prev = head;
+					head->next->prev = new;
+					head->next = new;
+				}
+			}
+			head = head->next;
+			i++;
+		}
 	}
 
-	new = malloc(sizeof(dlistint_t));
-	if (!new)
-		return (NULL);
-
-	new->n = n;
-	new->next = current->next;
-	current->next = new;
-	new->prev = current;
-	(new->next)->prev = new;
 	return (new);
 }
