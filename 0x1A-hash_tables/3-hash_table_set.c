@@ -4,7 +4,7 @@
  * hash_table_set - adds an element to the hash table.
  * @ht: the hash table you want to add or update the key/value to.
  * @key: the key, that can not be an empty string
- * @value: the value associated with the key. it can be duplicated or empty
+ * @value: the value associated with the key. it is duplicated and can be empty
  *
  * In case of collision, function adds new node at the beginning of the list
  *
@@ -27,8 +27,8 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!new_node)
 		return (0);
 
-	new_node->key = (char *) key;
-	new_node->value = (char *) value;
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
 
 	if (!ht->array[idx])
 	{
