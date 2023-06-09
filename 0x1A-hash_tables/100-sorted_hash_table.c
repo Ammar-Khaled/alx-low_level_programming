@@ -41,13 +41,13 @@ shash_table_t *shash_table_create(unsigned long int size)
 }
 
 /**
- * add_node_in_DLL - add the node in the right place
+ * place_node - add the node in the right place
  * in the sorted list
  * @ht: the hash table
  * @key: the key
  * @new_node: the new node
  */
-void add_node_in_DLL(shash_table_t *ht, const char *key, shash_node_t *new_node)
+void place_node(shash_table_t *ht, const char *key, shash_node_t *new_node)
 {
 	shash_node_t *ptr, *pre_ptr;
 
@@ -57,7 +57,6 @@ void add_node_in_DLL(shash_table_t *ht, const char *key, shash_node_t *new_node)
 		if (strcmp(key, ptr->key) < 0)
 		{
 			new_node->sprev = ptr->sprev;
-
 			if (ptr == ht->shead)
 			{
 				/*add the new node at the begining of the sorted list*/
@@ -67,10 +66,8 @@ void add_node_in_DLL(shash_table_t *ht, const char *key, shash_node_t *new_node)
 			{
 				ptr->sprev->snext = new_node;
 			}
-
 			ptr->sprev = new_node;
 			new_node->snext = ptr;
-
 			return;
 		}
 
@@ -78,21 +75,18 @@ void add_node_in_DLL(shash_table_t *ht, const char *key, shash_node_t *new_node)
 		ptr = ptr->snext;
 	}
 
-	/* here, ptr is NULL which means that either
-	* we should add the new node at the end of the sorted list
-	* or it will be the only node in its list
-	*/
+	/*
+	 * here, ptr is NULL which means that either
+	 * we should add the new node at the end of the sorted list
+	 * or it will be the only node in its list
+	 */
 	new_node->sprev = pre_ptr;
 	new_node->snext = NULL;
 
-	if (ht->shead)	/*case 1*/
-	{
+	if (ht->shead) /*case 1*/
 		pre_ptr->snext = new_node;
-	}
-	else	/*case 2*/
-	{
+	else /*case 2*/
 		ht->shead = new_node;
-	}
 
 	ht->stail = new_node;
 }
@@ -142,7 +136,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new_node->next = ht->array[idx];
 	ht->array[idx] = new_node;
 
-	add_node_in_DLL(ht, key, new_node);
+	place_node(ht, key, new_node);
 
 	return (1);
 }
