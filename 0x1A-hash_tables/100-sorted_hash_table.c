@@ -194,7 +194,7 @@ void shash_table_print(const shash_table_t *ht)
 	separator = "";
 	for (ptr = ht->shead; ptr; ptr = ptr->snext)
 	{
-		printf("%s'%s': '%s', ", separator, ptr->key, ptr->value);
+		printf("%s'%s': '%s'", separator, ptr->key, ptr->value);
 		separator = ", ";
 	}
 
@@ -218,7 +218,7 @@ void shash_table_print_rev(const shash_table_t *ht)
 	separator = "";
 	for (ptr = ht->stail; ptr; ptr = ptr->sprev)
 	{
-		printf("%s'%s': '%s', ", separator, ptr->key, ptr->value);
+		printf("%s'%s': '%s'", separator, ptr->key, ptr->value);
 		separator = ", ";
 	}
 
