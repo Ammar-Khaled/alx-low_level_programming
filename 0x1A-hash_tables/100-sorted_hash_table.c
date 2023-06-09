@@ -40,43 +40,61 @@ shash_table_t *shash_table_create(unsigned long int size)
 	return (table);
 }
 
-
-void add_node_in_DLL(shash_table_t *ht, char *key, shash_node_t *new_node)
+/**
+ * add_node_in_DLL - add the node in the right place
+ * in the sorted list
+ * @ht: the hash table
+ * @key: the key
+ * @new_node: the new node
+ */
+void add_node_in_DLL(shash_table_t *ht, const char *key, shash_node_t *new_node)
 {
-	shash_node_t *ptr;
+	shash_node_t *ptr, *pre_ptr;
 
-	ptr = ht->shead;
+	pre_ptr = ptr = ht->shead;
 	while (ptr != NULL)
 	{
 		if (strcmp(key, ptr->key) < 0)
 		{
+			new_node->sprev = ptr->sprev;
+
 			if (ptr == ht->shead)
 			{
 				/*add the new node at the begining of the sorted list*/
-				new_node->snext = ptr;
-				ptr->sprev = new_node;
 				ht->shead = new_node;
-				new_node->sprev = NULL;
-				return;
 			}
 			else /*add the new node at any position within the sorted list*/
 			{
-				new_node->snext = ptr;
-				new_node->sprev = ptr->sprev;
 				ptr->sprev->snext = new_node;
-				ptr->sprev = new_node;
-				return;
 			}
+
+			ptr->sprev = new_node;
+			new_node->snext = ptr;
+
+			return;
 		}
+
+		pre_ptr = ptr;
 		ptr = ptr->snext;
 	}
 
-	/*add the new node at the end of the sorted list*/
-	ht->stail->next = new_node;
-	new_node->sprev = ht->stail;
-	new_node->next = NULL;
-	ht->stail = new_node;
+	/* here, ptr is NULL which means that either
+	* we should add the new node at the end of the sorted list
+	* or it will be the only node in its list
+	*/
+	new_node->sprev = pre_ptr;
+	new_node->snext = NULL;
 
+	if (ht->shead)	/*case 1*/
+	{
+		pre_ptr->snext = new_node;
+	}
+	else	/*case 2*/
+	{
+		ht->shead = new_node;
+	}
+
+	ht->stail = new_node;
 }
 
 /**
@@ -97,7 +115,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	if (!ht)
 		return (0);
 
-	if (*key == "\0" || !key)
+	if (*key == '\0' || !key)
 		return (0);
 
 	idx = key_index((unsigned char *)key, ht->size);
@@ -237,7 +255,5 @@ void shash_table_delete(shash_table_t *ht)
 
 	/*free the table*/
 	free(ht->array);
-	free(ht->shead);
-	free(ht->stail);
 	free(ht);
 }
