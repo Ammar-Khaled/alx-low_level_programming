@@ -8,31 +8,26 @@ void hash_table_print(const hash_table_t *ht)
 {
 	hash_node_t *ptr;
 	unsigned long i;
-	int is_there_any = 0;
+    char *separator;
 
-	if (!ht)
+    if (!ht)
 		return;
 
 	printf("{");
-	for (i = 0; i < ht->size; i++)
-	{
+    separator = "";
+    for (i = 0; i < ht->size; i++)
+    {
 		if (ht->array[i])
 		{
 			ptr = ht->array[i];
 			while (ptr)
 			{
-				printf("'%s': '%s', ", ptr->key, ptr->value);
-				is_there_any = 1;
-				ptr = ptr->next;
-			}
+				printf("%s'%s': '%s', ", separator, ptr->key, ptr->value);
+                separator = ", ";
+                ptr = ptr->next;
+            }
 		}
 	}
-	if (is_there_any)
-	{
-		printf("\b\b}\n");
-	}
-	else
-	{
-		printf("}\n");
-	}
+
+	printf("}\n");  
 }
