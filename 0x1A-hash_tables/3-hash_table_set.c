@@ -18,7 +18,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	if (!ht)
 		return (0);
 
-	if ( (*key) == '\0' || !key)
+	if (*key == '\0' || !key)
 		return (0);
 
 	idx = key_index((unsigned char *)key, ht->size);
