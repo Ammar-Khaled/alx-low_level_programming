@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-def check_neighbours(grid, i, j, perimeter):
+def check_neighbours(grid, i, j):
     """Checks the land cells adjacent to a specific cell."""
     subtract = 0
 
