@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+"""Island Perimeter Problem."""
+
 
 def check_neighbours(grid, i, j):
-    """Checks the land cells adjacent to a specific cell."""
+    """Check the land cells adjacent to a specific cell."""
     subtract = 0
 
     if i > 0 and grid[i - 1][j] == 1:
@@ -17,7 +19,7 @@ def check_neighbours(grid, i, j):
 
 
 def island_perimeter(grid):
-    """Returns the perimeter of the island represented by the grid."""
+    """Return the perimeter of the island represented by the grid."""
     perimeter = 0
 
     for i in range(len(grid)):
