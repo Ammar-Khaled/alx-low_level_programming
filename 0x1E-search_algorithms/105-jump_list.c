@@ -14,43 +14,33 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	int step, count;
-	listint_t *i, *j;
+	size_t step, limit;
+	listint_t *prev;
 
 	if (!list || size < 1)
 		return (NULL);
 
-	step = sqrt(size);
-
-	i = j = list;
-	count = step;
-	while (count-- && i->next)
-		i = i->next;
-
-	while (1)
+	step = (size_t)sqrt((double)size);
+	limit = 0;
+	do
 	{
-		printf("Value checked array[%lu] = [%i]\n", i->index, i->n);
-		if (i->n >= value)
-			break;
+		prev = list;
 
-		j = i;
-		count = step;
-		while (count-- && i->next)
-			i = i->next;
+		limit += step;
+		while (list->index < limit && list->next)
+			list = list->next;
 
-		if (i->index >= size - 1)
-			break;
-	}
+		printf("Value checked at index [%lu] = [%d]\n", list->index, list->n);
+	} while (list->n < value && list->next);
 
-	printf("Value found between indexes [%lu] and [%lu]\n", j->index, i->index);
+	printf("Value found between indexes ");
+	printf("[%d] and [%d]\n", (int)prev->index, (int)list->index);
 
-	for (; j && j->index <= i->index && j->index < size; j = j->next)
+	for (; prev && prev->index <= list->index; prev = prev->next)
 	{
-		printf("Value checked array[%lu] = [%i]\n", j->index, j->n);
-		if (j->n == value)
-		{
-			return (j);
-		}
+		printf("Value checked at index [%d] = [%d]\n", (int)prev->index, prev->n);
+		if (prev->n == value)
+			return (prev);
 	}
 
 	return (NULL);
