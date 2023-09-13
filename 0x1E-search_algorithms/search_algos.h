@@ -47,6 +47,8 @@ typedef struct skiplist_s
 	struct skiplist_s *express;
 } skiplist_t;
 
+skiplist_t *linear_skip(skiplist_t *list, int value);
+
 void free_list(listint_t *list);
 listint_t *create_list(int *array, size_t size);
 void print_list(const listint_t *list);
