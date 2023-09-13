@@ -22,8 +22,7 @@ listint_t *jump_list(listint_t *list, size_t size, int value)
 
 	step = (size_t)sqrt((double)size);
 	limit = 0;
-	do
-	{
+	do {
 		prev = list;
 
 		limit += step;
