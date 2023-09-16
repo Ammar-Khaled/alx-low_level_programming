@@ -27,7 +27,7 @@ int bs(int *array, int value, int left, int right)
 		{
 			if (mid >= 1 && array[mid - 1] == value)
 			{
-				return (bs(array, value, 0, mid));
+				return (bs(array, value, left, mid));
 			}
 			else
 			{
@@ -37,7 +37,7 @@ int bs(int *array, int value, int left, int right)
 		else if (array[mid] < value)
 			return (bs(array, value, mid + 1, right));
 		else
-			return (bs(array, value, left, mid - 1));
+			return (bs(array, value, left, mid));
 	}
 	else
 	{
